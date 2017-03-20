@@ -14,6 +14,12 @@
 		D2B669BC1E7FBF3200C61ADB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B669BA1E7FBF3200C61ADB /* LaunchScreen.storyboard */; };
 		D2B669C71E7FBF3300C61ADB /* ConferenceAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B669C61E7FBF3300C61ADB /* ConferenceAppTests.swift */; };
 		D2B669D21E7FBF3300C61ADB /* ConferenceAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B669D11E7FBF3300C61ADB /* ConferenceAppUITests.swift */; };
+		D2B669E31E7FC63400C61ADB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B669E11E7FC63400C61ADB /* LoginViewController.swift */; };
+		D2B669E41E7FC63400C61ADB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2B669E21E7FC63400C61ADB /* LoginViewController.xib */; };
+		D2B669ED1E7FC67D00C61ADB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B669EB1E7FC67D00C61ADB /* HomeViewController.swift */; };
+		D2B669EE1E7FC67D00C61ADB /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2B669EC1E7FC67D00C61ADB /* HomeViewController.xib */; };
+		D2B669F11E7FC69000C61ADB /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B669EF1E7FC69000C61ADB /* RegistrationViewController.swift */; };
+		D2B669F21E7FC69000C61ADB /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2B669F01E7FC69000C61ADB /* RegistrationViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +53,12 @@
 		D2B669CD1E7FBF3300C61ADB /* ConferenceAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConferenceAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B669D11E7FBF3300C61ADB /* ConferenceAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceAppUITests.swift; sourceTree = "<group>"; };
 		D2B669D31E7FBF3300C61ADB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2B669E11E7FC63400C61ADB /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D2B669E21E7FC63400C61ADB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		D2B669EB1E7FC67D00C61ADB /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D2B669EC1E7FC67D00C61ADB /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		D2B669EF1E7FC69000C61ADB /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		D2B669F01E7FC69000C61ADB /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +109,7 @@
 		D2B669B01E7FBF3200C61ADB /* ConferenceApp */ = {
 			isa = PBXGroup;
 			children = (
+				D2B669E51E7FC63B00C61ADB /* UserInterface */,
 				D2B669B11E7FBF3200C61ADB /* AppDelegate.swift */,
 				D2B669B31E7FBF3200C61ADB /* ViewController.swift */,
 				D2B669B51E7FBF3200C61ADB /* Main.storyboard */,
@@ -123,6 +136,43 @@
 				D2B669D31E7FBF3300C61ADB /* Info.plist */,
 			);
 			path = ConferenceAppUITests;
+			sourceTree = "<group>";
+		};
+		D2B669E51E7FC63B00C61ADB /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				D2B669E81E7FC65D00C61ADB /* Home */,
+				D2B669E71E7FC65600C61ADB /* Registration */,
+				D2B669E61E7FC64100C61ADB /* Login */,
+			);
+			name = UserInterface;
+			sourceTree = "<group>";
+		};
+		D2B669E61E7FC64100C61ADB /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D2B669E11E7FC63400C61ADB /* LoginViewController.swift */,
+				D2B669E21E7FC63400C61ADB /* LoginViewController.xib */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		D2B669E71E7FC65600C61ADB /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				D2B669EF1E7FC69000C61ADB /* RegistrationViewController.swift */,
+				D2B669F01E7FC69000C61ADB /* RegistrationViewController.xib */,
+			);
+			name = Registration;
+			sourceTree = "<group>";
+		};
+		D2B669E81E7FC65D00C61ADB /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D2B669EB1E7FC67D00C61ADB /* HomeViewController.swift */,
+				D2B669EC1E7FC67D00C61ADB /* HomeViewController.xib */,
+			);
+			name = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,7 +282,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2B669E41E7FC63400C61ADB /* LoginViewController.xib in Resources */,
 				D2B669BC1E7FBF3200C61ADB /* LaunchScreen.storyboard in Resources */,
+				D2B669EE1E7FC67D00C61ADB /* HomeViewController.xib in Resources */,
+				D2B669F21E7FC69000C61ADB /* RegistrationViewController.xib in Resources */,
 				D2B669B91E7FBF3200C61ADB /* Assets.xcassets in Resources */,
 				D2B669B71E7FBF3200C61ADB /* Main.storyboard in Resources */,
 			);
@@ -259,8 +312,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2B669ED1E7FC67D00C61ADB /* HomeViewController.swift in Sources */,
+				D2B669E31E7FC63400C61ADB /* LoginViewController.swift in Sources */,
 				D2B669B41E7FBF3200C61ADB /* ViewController.swift in Sources */,
 				D2B669B21E7FBF3200C61ADB /* AppDelegate.swift in Sources */,
+				D2B669F11E7FC69000C61ADB /* RegistrationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
