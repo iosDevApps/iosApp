@@ -1,0 +1,6 @@
+framework module Pods_ConferenceAppUITests {
+  umbrella header "Pods-ConferenceAppUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
