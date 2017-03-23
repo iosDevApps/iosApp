@@ -24,16 +24,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Rlo-j9-NvN">
-                    <rect key="frame" x="0.0" y="319" width="375" height="60"/>
+                    <rect key="frame" x="30" y="319" width="315" height="60"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Pu2-UL-6O6">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                            <rect key="frame" x="0.0" y="0.0" width="315" height="30"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yaO-Nd-9oJ">
-                            <rect key="frame" x="0.0" y="30" width="375" height="30"/>
+                            <rect key="frame" x="0.0" y="30" width="315" height="30"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
@@ -54,13 +54,13 @@
             <constraints>
                 <constraint firstItem="fad-gy-hO3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2AV-E0-no3"/>
                 <constraint firstItem="qly-tJ-mdq" firstAttribute="top" secondItem="fad-gy-hO3" secondAttribute="bottom" constant="30" id="5W5-jB-A4U"/>
-                <constraint firstItem="Rlo-j9-NvN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5x4-ZL-0mX"/>
                 <constraint firstItem="qly-tJ-mdq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ip1-eg-nJU"/>
                 <constraint firstItem="qly-tJ-mdq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JZd-Eg-sd4"/>
+                <constraint firstAttribute="trailing" secondItem="Rlo-j9-NvN" secondAttribute="trailing" constant="30" id="NXM-Hs-etg"/>
                 <constraint firstAttribute="trailing" secondItem="qly-tJ-mdq" secondAttribute="trailing" id="Xht-0u-hpn"/>
                 <constraint firstItem="Rlo-j9-NvN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="319" id="cjr-ba-IVF"/>
+                <constraint firstItem="Rlo-j9-NvN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="gZi-3C-4KJ"/>
                 <constraint firstAttribute="trailing" secondItem="qly-tJ-mdq" secondAttribute="trailing" id="oNX-ZY-vST"/>
-                <constraint firstAttribute="trailing" secondItem="Rlo-j9-NvN" secondAttribute="trailing" id="vgh-gd-IIF"/>
                 <constraint firstItem="fad-gy-hO3" firstAttribute="top" secondItem="Rlo-j9-NvN" secondAttribute="bottom" constant="30" id="wWo-qR-6xX"/>
                 <constraint firstAttribute="trailing" secondItem="fad-gy-hO3" secondAttribute="trailing" id="zLA-Ef-dAy"/>
             </constraints>
