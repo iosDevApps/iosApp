@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		79B2F9DD1D5A18F8145ADF79 /* Pods_ConferenceAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A36F0F63BE34DEAE8DD1EF /* Pods_ConferenceAppUITests.framework */; };
+		A16B22A61E8430790074F1BB /* untitled.json in Resources */ = {isa = PBXBuildFile; fileRef = A16B22A31E8430790074F1BB /* untitled.json */; };
+		A16B22A71E8430790074F1BB /* LectureDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22A41E8430790074F1BB /* LectureDetailViewController.swift */; };
+		A16B22A81E8430790074F1BB /* LectureDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A16B22A51E8430790074F1BB /* LectureDetailViewController.xib */; };
+		A16B22AE1E8431310074F1BB /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22AB1E8431310074F1BB /* Schedule.swift */; };
+		A16B22AF1E8431310074F1BB /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22AC1E8431310074F1BB /* Lecture.swift */; };
+		A16B22B01E8431310074F1BB /* Lecturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22AD1E8431310074F1BB /* Lecturer.swift */; };
+		A16B22B51E8431490074F1BB /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22B11E8431490074F1BB /* CalendarViewController.swift */; };
+		A16B22B61E8431490074F1BB /* CalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A16B22B21E8431490074F1BB /* CalendarViewController.xib */; };
+		A16B22B71E8431490074F1BB /* CalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22B31E8431490074F1BB /* CalendarViewCell.swift */; };
+		A16B22B81E8431490074F1BB /* CalendarViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A16B22B41E8431490074F1BB /* CalendarViewCell.xib */; };
 		A251999BD5BDC70EF1F12717 /* Pods_ConferenceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F824CCFC96D8621FC6CB183 /* Pods_ConferenceApp.framework */; };
 		D215426A1E80110200997478 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21542691E80110200997478 /* LoginViewModel.swift */; };
 		D215426F1E80153E00997478 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D215426E1E80153E00997478 /* LoginService.swift */; };
@@ -52,6 +62,16 @@
 		373291A751E829204141C4C4 /* Pods_ConferenceAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConferenceAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A033DEA428A385AC41FB4B6 /* Pods-ConferenceAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConferenceAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConferenceAppTests/Pods-ConferenceAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9F824CCFC96D8621FC6CB183 /* Pods_ConferenceApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConferenceApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A16B22A31E8430790074F1BB /* untitled.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = untitled.json; sourceTree = "<group>"; };
+		A16B22A41E8430790074F1BB /* LectureDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureDetailViewController.swift; sourceTree = "<group>"; };
+		A16B22A51E8430790074F1BB /* LectureDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LectureDetailViewController.xib; sourceTree = "<group>"; };
+		A16B22AB1E8431310074F1BB /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		A16B22AC1E8431310074F1BB /* Lecture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
+		A16B22AD1E8431310074F1BB /* Lecturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lecturer.swift; sourceTree = "<group>"; };
+		A16B22B11E8431490074F1BB /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		A16B22B21E8431490074F1BB /* CalendarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarViewController.xib; sourceTree = "<group>"; };
+		A16B22B31E8431490074F1BB /* CalendarViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewCell.swift; sourceTree = "<group>"; };
+		A16B22B41E8431490074F1BB /* CalendarViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarViewCell.xib; sourceTree = "<group>"; };
 		D21542691E80110200997478 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		D215426E1E80153E00997478 /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		D21542701E80159600997478 /* PersistService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistService.swift; sourceTree = "<group>"; };
@@ -128,6 +148,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A16B22A91E8430EC0074F1BB /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				A16B22B11E8431490074F1BB /* CalendarViewController.swift */,
+				A16B22B21E8431490074F1BB /* CalendarViewController.xib */,
+				A16B22B31E8431490074F1BB /* CalendarViewCell.swift */,
+				A16B22B41E8431490074F1BB /* CalendarViewCell.xib */,
+			);
+			name = Schedule;
+			sourceTree = "<group>";
+		};
+		A16B22AA1E8431220074F1BB /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				A16B22AB1E8431310074F1BB /* Schedule.swift */,
+				A16B22AC1E8431310074F1BB /* Lecture.swift */,
+				A16B22AD1E8431310074F1BB /* Lecturer.swift */,
+			);
+			name = DataModel;
+			sourceTree = "<group>";
+		};
 		D215426D1E80153200997478 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +203,10 @@
 		D2B669B01E7FBF3200C61ADB /* ConferenceApp */ = {
 			isa = PBXGroup;
 			children = (
+				A16B22AA1E8431220074F1BB /* DataModel */,
+				A16B22A31E8430790074F1BB /* untitled.json */,
+				A16B22A41E8430790074F1BB /* LectureDetailViewController.swift */,
+				A16B22A51E8430790074F1BB /* LectureDetailViewController.xib */,
 				D215426D1E80153200997478 /* Services */,
 				D2B669E51E7FC63B00C61ADB /* UserInterface */,
 				D2B669B11E7FBF3200C61ADB /* AppDelegate.swift */,
@@ -193,6 +238,7 @@
 		D2B669E51E7FC63B00C61ADB /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				A16B22A91E8430EC0074F1BB /* Schedule */,
 				D2B669E81E7FC65D00C61ADB /* Home */,
 				D2B669E71E7FC65600C61ADB /* Registration */,
 				D2B669E61E7FC64100C61ADB /* Login */,
@@ -346,7 +392,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2B669E41E7FC63400C61ADB /* LoginViewController.xib in Resources */,
+				A16B22B81E8431490074F1BB /* CalendarViewCell.xib in Resources */,
 				D2B669BC1E7FBF3200C61ADB /* LaunchScreen.storyboard in Resources */,
+				A16B22A81E8430790074F1BB /* LectureDetailViewController.xib in Resources */,
+				A16B22A61E8430790074F1BB /* untitled.json in Resources */,
+				A16B22B61E8431490074F1BB /* CalendarViewController.xib in Resources */,
 				D2B669EE1E7FC67D00C61ADB /* HomeViewController.xib in Resources */,
 				D2B669F21E7FC69000C61ADB /* RegistrationViewController.xib in Resources */,
 				D2B669B91E7FBF3200C61ADB /* Assets.xcassets in Resources */,
@@ -516,10 +566,16 @@
 				D21542711E80159600997478 /* PersistService.swift in Sources */,
 				D2B669E31E7FC63400C61ADB /* LoginViewController.swift in Sources */,
 				D215426A1E80110200997478 /* LoginViewModel.swift in Sources */,
+				A16B22B71E8431490074F1BB /* CalendarViewCell.swift in Sources */,
 				D21542731E801BFD00997478 /* LoginResult.swift in Sources */,
 				D2B669B21E7FBF3200C61ADB /* AppDelegate.swift in Sources */,
 				D2B669F11E7FC69000C61ADB /* RegistrationViewController.swift in Sources */,
 				D215426F1E80153E00997478 /* LoginService.swift in Sources */,
+				A16B22B51E8431490074F1BB /* CalendarViewController.swift in Sources */,
+				A16B22AF1E8431310074F1BB /* Lecture.swift in Sources */,
+				A16B22AE1E8431310074F1BB /* Schedule.swift in Sources */,
+				A16B22A71E8430790074F1BB /* LectureDetailViewController.swift in Sources */,
+				A16B22B01E8431310074F1BB /* Lecturer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
