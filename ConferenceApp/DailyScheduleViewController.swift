@@ -12,8 +12,6 @@ import PureLayout
 fileprivate let reusableCellIdentifier = String(describing: CalendarViewCell.self)
 
 class DailyScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    private var scheduleTableView = UITableView()
     
     private var lectures: [Lecture]
     
@@ -46,6 +44,7 @@ class DailyScheduleViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     private func configureTable(date: String) {
+        let scheduleTableView = UITableView()
         scheduleTableView.register(CalendarViewCell.self, forCellReuseIdentifier: reusableCellIdentifier)
         scheduleTableView.delegate = self
         scheduleTableView.dataSource = self
