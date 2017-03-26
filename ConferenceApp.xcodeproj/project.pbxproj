@@ -14,8 +14,6 @@
 		A16B22AE1E8431310074F1BB /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22AB1E8431310074F1BB /* Schedule.swift */; };
 		A16B22AF1E8431310074F1BB /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22AC1E8431310074F1BB /* Lecture.swift */; };
 		A16B22B01E8431310074F1BB /* Lecturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22AD1E8431310074F1BB /* Lecturer.swift */; };
-		A16B22B51E8431490074F1BB /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22B11E8431490074F1BB /* CalendarViewController.swift */; };
-		A16B22B61E8431490074F1BB /* CalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A16B22B21E8431490074F1BB /* CalendarViewController.xib */; };
 		A16B22B71E8431490074F1BB /* CalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22B31E8431490074F1BB /* CalendarViewCell.swift */; };
 		A16B22B81E8431490074F1BB /* CalendarViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A16B22B41E8431490074F1BB /* CalendarViewCell.xib */; };
 		A16B22BB1E84365A0074F1BB /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22B91E84365A0074F1BB /* ScheduleViewController.swift */; };
@@ -74,8 +72,6 @@
 		A16B22AB1E8431310074F1BB /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		A16B22AC1E8431310074F1BB /* Lecture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
 		A16B22AD1E8431310074F1BB /* Lecturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lecturer.swift; sourceTree = "<group>"; };
-		A16B22B11E8431490074F1BB /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
-		A16B22B21E8431490074F1BB /* CalendarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarViewController.xib; sourceTree = "<group>"; };
 		A16B22B31E8431490074F1BB /* CalendarViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewCell.swift; sourceTree = "<group>"; };
 		A16B22B41E8431490074F1BB /* CalendarViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarViewCell.xib; sourceTree = "<group>"; };
 		A16B22B91E84365A0074F1BB /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
@@ -189,8 +185,6 @@
 		A16B22C11E8480E60074F1BB /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				A16B22B11E8431490074F1BB /* CalendarViewController.swift */,
-				A16B22B21E8431490074F1BB /* CalendarViewController.xib */,
 				A16B22B31E8431490074F1BB /* CalendarViewCell.swift */,
 				A16B22B41E8431490074F1BB /* CalendarViewCell.xib */,
 			);
@@ -423,7 +417,6 @@
 				D2B669BC1E7FBF3200C61ADB /* LaunchScreen.storyboard in Resources */,
 				A16B22A81E8430790074F1BB /* LectureDetailViewController.xib in Resources */,
 				A16B22A61E8430790074F1BB /* untitled.json in Resources */,
-				A16B22B61E8431490074F1BB /* CalendarViewController.xib in Resources */,
 				D2B669EE1E7FC67D00C61ADB /* HomeViewController.xib in Resources */,
 				A16B22BC1E84365A0074F1BB /* ScheduleViewController.xib in Resources */,
 				D2B669F21E7FC69000C61ADB /* RegistrationViewController.xib in Resources */,
@@ -602,7 +595,6 @@
 				D2B669B21E7FBF3200C61ADB /* AppDelegate.swift in Sources */,
 				D2B669F11E7FC69000C61ADB /* RegistrationViewController.swift in Sources */,
 				D215426F1E80153E00997478 /* LoginService.swift in Sources */,
-				A16B22B51E8431490074F1BB /* CalendarViewController.swift in Sources */,
 				A16B22AF1E8431310074F1BB /* Lecture.swift in Sources */,
 				A16B22AE1E8431310074F1BB /* Schedule.swift in Sources */,
 				A16B22A71E8430790074F1BB /* LectureDetailViewController.swift in Sources */,
