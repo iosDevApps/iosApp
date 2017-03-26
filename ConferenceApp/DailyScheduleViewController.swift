@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PureLayout
 
 fileprivate let reusableCellIdentifier = String(describing: CalendarViewCell.self)
 
@@ -27,7 +28,6 @@ class DailyScheduleViewController: UIViewController, UITableViewDelegate, UITabl
     init(lectures: [Lecture], date: String, navigationBarHeight: CGFloat) {
         
         self.lectures = lectures
-        self.date = date
         self.navigatioBarHeight = navigationBarHeight
         super.init(nibName: nil, bundle: nil)
 
@@ -41,7 +41,6 @@ class DailyScheduleViewController: UIViewController, UITableViewDelegate, UITabl
     private func makeDateLabel(date: String) -> UILabel {
         let label = UILabel()
         label.text = date
-        label.frame = CGRect(x: 0, y: self.navigatioBarHeight, width: screenWidth, height: dataLabelHeight)
         label.textAlignment = .center
         return label
     }
@@ -57,12 +56,19 @@ class DailyScheduleViewController: UIViewController, UITableViewDelegate, UITabl
         
         let dateLabel = makeDateLabel(date: date)
         
-        scheduleTableView.frame = CGRect(x: 0, y: self.navigatioBarHeight+dataLabelHeight, width: screenWidth, height: screenHeight)
-        
-        
-        
         self.view.addSubview(dateLabel)
         self.view.addSubview(scheduleTableView)
+        
+        // Constraints
+        
+        dateLabel.autoPin(toTopLayoutGuideOf: self, withInset: 8)
+        dateLabel.autoAlignAxis(toSuperviewAxis: .vertical)
+        
+        dateLabel.autoPinEdge(.bottom, to: .top, of: scheduleTableView, withOffset: -8)
+        
+        scheduleTableView.autoPinEdge(toSuperviewEdge: .leading)
+        scheduleTableView.autoPinEdge(toSuperviewEdge: .trailing)
+        scheduleTableView.autoPin(toBottomLayoutGuideOf: self, withInset: 8)
     }
     
     

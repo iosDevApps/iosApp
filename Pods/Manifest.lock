@@ -1,16 +1,19 @@
 PODS:
+  - PureLayout (3.0.2)
   - RxCocoa (3.3.1):
     - RxSwift (~> 3.3)
   - RxSwift (3.3.1)
 
 DEPENDENCIES:
+  - PureLayout
   - RxCocoa
   - RxSwift
 
 SPEC CHECKSUMS:
+  PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   RxCocoa: 7dcb7a1860fc9cd0e23dae67ab105fc2916670b6
   RxSwift: 8fc9f2de6275a9101d518444e00bf32f1a42caac
 
-PODFILE CHECKSUM: 6c9d3c0b61315959b8e005cdf5a3824d766be004
+PODFILE CHECKSUM: 3296dd07c5981b8a232ce6621e607f2339908025
 
 COCOAPODS: 1.2.0
