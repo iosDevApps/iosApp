@@ -15,6 +15,7 @@ class Lecture {
     let lecturerName: String
     let lectureLocation: String
     let lectureShortDescription: String
+    let lecturer: Lecturer
 //    let lectureDate: String
 
     init?(lecturesInfo: [String: Any]) {
@@ -31,6 +32,9 @@ class Lecture {
             }
         
         let lecturer = Lecturer(lecturerInfo: lecturerInfo)
+        
+        self.lecturer = lecturer!
+        
         self.lecturerName = (lecturer?.lecturerName)!
         
         self.lectureShortDescription = lectureShortDescription

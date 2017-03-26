@@ -13,11 +13,11 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     private var scheduleTableView = UITableView()
     fileprivate let reusableCellIdentifier = String(describing: CalendarViewCell.self)
     
-//    private var schedule = [DailySchedule]()
     
     private var schedule: Schedule?
     
-//    private var scheduleDuration: Int?
+//    var lectures: [Lecture]
+//    var date: String
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +26,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         configureTable()
 
     }
+
+    
     
     private func configureTable() {
         

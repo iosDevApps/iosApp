@@ -1,6 +1,7 @@
 {
 	"data":{
 		"days":3,
+        "event_id":1,
 		"schedule":[
 					{
 						"day":"23.03.2017",
