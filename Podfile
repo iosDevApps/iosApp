@@ -8,7 +8,7 @@ target 'ConferenceApp' do
   # Pods for ConferenceApp
   pod 'RxSwift'
   pod 'RxCocoa'
-
+  pod 'PureLayout'
 
   target 'ConferenceAppTests' do
     inherit! :search_paths
