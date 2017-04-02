@@ -14,19 +14,19 @@ fileprivate let reusableCellIdentifier = String(describing: CalendarViewCell.sel
 class DailyScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private var lectures: [Lecture]
-    
-    private var navigatioBarHeight: CGFloat
-    private var dataLabelHeight: CGFloat = 44
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.automaticallyAdjustsScrollViewInsets = false
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
     }
     
     init(lectures: [Lecture], date: String, navigationBarHeight: CGFloat) {
         
         self.lectures = lectures
-        self.navigatioBarHeight = navigationBarHeight
         super.init(nibName: nil, bundle: nil)
 
         configureTable(date: date)
@@ -54,12 +54,11 @@ class DailyScheduleViewController: UIViewController, UITableViewDelegate, UITabl
         scheduleTableView.tableFooterView = UIView()
         
         let dateLabel = makeDateLabel(date: date)
-        
+
         self.view.addSubview(dateLabel)
         self.view.addSubview(scheduleTableView)
         
         // Constraints
-        
         dateLabel.autoPin(toTopLayoutGuideOf: self, withInset: 8)
         dateLabel.autoAlignAxis(toSuperviewAxis: .vertical)
         
@@ -68,9 +67,9 @@ class DailyScheduleViewController: UIViewController, UITableViewDelegate, UITabl
         scheduleTableView.autoPinEdge(toSuperviewEdge: .leading)
         scheduleTableView.autoPinEdge(toSuperviewEdge: .trailing)
         scheduleTableView.autoPin(toBottomLayoutGuideOf: self, withInset: 8)
+
     }
-    
-    
+        
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.lectures.count
     }
@@ -91,8 +90,10 @@ class DailyScheduleViewController: UIViewController, UITableViewDelegate, UITabl
         
         let cell = tableView.dequeueReusableCell(withIdentifier: reusableCellIdentifier, for: indexPath) as! CalendarViewCell
 
-        cell.backgroundColor = UIColor.cyan
-        cell.textLabel!.text = lectures[indexPath.row].lectureTitle
+//        cell.backgroundColor = UIColor.cyan
+//        cell.textLabel!.text = lectures[indexPath.row].lectureTitle
+        
+        cell.setupCell(lectureInfo: lectures[indexPath.row])
         return cell
         
     }

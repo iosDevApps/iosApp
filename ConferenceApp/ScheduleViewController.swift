@@ -16,7 +16,7 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.automaticallyAdjustsScrollViewInsets = false
+        self.edgesForExtendedLayout = []
 
         self.schedule = createScheduleFromJson()
         
@@ -25,14 +25,7 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
         self.delegate = self
         self.dataSource = self
         
-//        if let schedule = schedule, let firstDay = schedule.lecturesSchedule.keys.first {
-//            let firstDayViewController = DailyScheduleViewController(
-//                lectures: schedule.lecturesSchedule[firstDay]!,
-//                date: firstDay,
-//                navigationBarHeight: 44
-//            )
-//            setViewControllers([firstDayViewController], direction: .forward, animated: true, completion: nil)
-//        }
+
 
         if let viewController = dailySchedules.first {
             setViewControllers([viewController], direction: .forward, animated: true, completion: nil)
