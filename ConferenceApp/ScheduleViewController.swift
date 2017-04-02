@@ -16,8 +16,8 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.edgesForExtendedLayout = []
-
+        navigationBarViewSetUp()
+        
         self.schedule = createScheduleFromJson()
         
         createDailySchedulesArray()
@@ -26,10 +26,17 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
         self.dataSource = self
         
 
-
         if let viewController = dailySchedules.first {
             setViewControllers([viewController], direction: .forward, animated: true, completion: nil)
         }
+    }
+    
+    private func navigationBarViewSetUp () {
+        
+        self.edgesForExtendedLayout = []
+        self.navigationController!.navigationBar.isTranslucent = false
+        self.navigationController!.navigationBar.backgroundColor = UIColor.white
+        self.navigationItem.title = "Schedule"
     }
     
     

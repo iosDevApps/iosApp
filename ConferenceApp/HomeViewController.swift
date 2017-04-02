@@ -24,6 +24,7 @@ class HomeViewController: UIViewController {
     @IBAction func eventButtonTouched(_ sender: UIButton) {
         let scheduleViewController = ScheduleViewController()
         navigationController?.pushViewController(scheduleViewController, animated: true)
+
     }
     
 
