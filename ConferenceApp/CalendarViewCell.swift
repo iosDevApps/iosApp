@@ -11,17 +11,13 @@ import PureLayout
 
 class CalendarViewCell: UITableViewCell {
 
-
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
 
@@ -55,8 +51,6 @@ class CalendarViewCell: UITableViewCell {
         lectureLocation.autoPinEdge(.top, to: .bottom, of: lectureScheduledTime, withOffset: 10)
         lectureLocation.autoPinEdge(toSuperviewEdge: .bottom, withInset: 10)
         lectureLocation.autoPinEdge(toSuperviewEdge: .right, withInset: 10)
-
-
         
         
     }

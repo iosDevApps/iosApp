@@ -89,9 +89,6 @@ class DailyScheduleViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: reusableCellIdentifier, for: indexPath) as! CalendarViewCell
-
-//        cell.backgroundColor = UIColor.cyan
-//        cell.textLabel!.text = lectures[indexPath.row].lectureTitle
         
         cell.setupCell(lectureInfo: lectures[indexPath.row])
         return cell
