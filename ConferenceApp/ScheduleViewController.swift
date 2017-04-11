@@ -11,7 +11,13 @@ import UIKit
 class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
     private var schedule: Schedule?
+    private var persistanceService: PersistanceService?
     private var dailySchedules = [DailyScheduleViewController]()
+    
+    convenience init(persistanceService: PersistanceService?) {
+        self.init()
+        self.persistanceService = persistanceService
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +35,8 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
         if let viewController = dailySchedules.first {
             setViewControllers([viewController], direction: .forward, animated: true, completion: nil)
         }
+        
+        
     }
     
     private func navigationBarViewSetUp () {
@@ -44,10 +52,9 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
     private func createDailySchedulesArray() {
         
         let sortedKeys = Array(schedule!.lecturesSchedule.keys).sorted(by: <)
-        let height = self.navigationController!.navigationBar.frame.height + UIApplication.shared.statusBarFrame.height
 
         for key in sortedKeys {
-            let dailySchedule = DailyScheduleViewController(lectures: (schedule?.lecturesSchedule[key])!, date: key, navigationBarHeight: height)
+            let dailySchedule = DailyScheduleViewController(lectures: (schedule?.lecturesSchedule[key])!, date: key)
             self.dailySchedules.append(dailySchedule)
         }
     }
@@ -63,6 +70,7 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
                     
                     let parsedData = try JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
                     let schedule = Schedule(json: parsedData)
+                    
                     
                     return schedule
                     

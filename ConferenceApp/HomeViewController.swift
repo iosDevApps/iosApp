@@ -22,10 +22,17 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func eventButtonTouched(_ sender: UIButton) {
+
         let scheduleViewController = ScheduleViewController()
         navigationController?.pushViewController(scheduleViewController, animated: true)
 
     }
     
+    @IBAction func coreDataTest(_ sender: UIButton) {
+        let persistanceService = PersistanceService()
+        let eventsViewController = EventViewController(persistanceService: persistanceService)
+        navigationController?.pushViewController(eventsViewController, animated: true)
+
+    }
 
 }

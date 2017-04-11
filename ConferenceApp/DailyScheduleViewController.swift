@@ -24,7 +24,7 @@ class DailyScheduleViewController: UIViewController, UITableViewDelegate, UITabl
         super.viewWillAppear(true)
     }
     
-    init(lectures: [Lecture], date: String, navigationBarHeight: CGFloat) {
+    init(lectures: [Lecture], date: String) {
         
         self.lectures = lectures
         super.init(nibName: nil, bundle: nil)

@@ -44,4 +44,7 @@ class LectureDetailViewController: UIViewController {
     }
     
 
+    @IBAction func deleteEvent(_ sender: UIButton) {
+    }
+
 }
