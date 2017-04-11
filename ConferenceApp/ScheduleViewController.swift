@@ -10,22 +10,17 @@ import UIKit
 
 class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
-    private var schedule: Schedule?
-//    private var persistanceService: PersistanceService?
+    private var event: EventJson?
     private var dailySchedules = [DailyScheduleViewController]()
     
-//    convenience init(persistanceService: PersistanceService?) {
-//        self.init()
-//        self.persistanceService = persistanceService
-//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationBarViewSetUp()
         view.backgroundColor = .white
-        self.schedule = createScheduleFromJson()
         
+        self.event = createEventFromJson()
         createDailySchedulesArray()
 
         self.delegate = self
@@ -39,6 +34,11 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
         
     }
     
+
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+    
     private func navigationBarViewSetUp () {
         
         self.edgesForExtendedLayout = []
@@ -51,6 +51,7 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
 
     private func createDailySchedulesArray() {
         
+        let schedule = self.event?.schedule
         let sortedKeys = Array(schedule!.lecturesSchedule.keys).sorted(by: <)
 
         for key in sortedKeys {
@@ -59,7 +60,7 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
         }
     }
     
-    private func createScheduleFromJson() -> Schedule? {
+    private func createEventFromJson() -> EventJson? {
         
         let jsonFileName = "untitled"
         
@@ -69,9 +70,8 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
                 do {
                     
                     let parsedData = try JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
-                    let schedule = Schedule(json: parsedData)
-                    
-                    return schedule
+                    let event = EventJson(json: parsedData)
+                    return event
                     
                 } catch let error {
                     print(error.localizedDescription)

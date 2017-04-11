@@ -16,7 +16,7 @@ class EventViewController: UIViewController {
     
     var tableView = UITableView()
     fileprivate var dataSource: TableViewDataSource<EventViewController>?
-    private var schedule: Schedule?
+    private var event: EventJson?
 
     convenience init(persistanceService: PersistanceService?) {
         self.init()
@@ -25,21 +25,19 @@ class EventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        schedule = createScheduleFromJson()
-        persistanceService!.createEvent(withEventId: schedule!.eventId, eventName: schedule!.eventName, days: Int16(schedule!.scheduleDuration)) { event in
-            print("photo created", event.eventId)
+        event = createEventFromJson()
+        persistanceService!.createEvent(withEventId: event!.eventId, eventName: event!.eventName, days: Int16(event!.eventDuration)) { event in
+            print("event ID:", event.eventId)
         }
         setupTableView()
         
         self.view.addSubview(tableView)
         tableView.autoPinEdgesToSuperviewEdges()
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
@@ -63,7 +61,7 @@ class EventViewController: UIViewController {
         
     }
     
-    private func createScheduleFromJson() -> Schedule? {
+    private func createEventFromJson() -> EventJson? {
         
         let jsonFileName = "untitled"
         
@@ -73,9 +71,8 @@ class EventViewController: UIViewController {
                 do {
                     
                     let parsedData = try JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
-                    let schedule = Schedule(json: parsedData)
-                                        
-                    return schedule
+                    let event = EventJson(json: parsedData)
+                    return event
                     
                 } catch let error {
                     print(error.localizedDescription)

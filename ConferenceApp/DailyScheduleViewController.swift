@@ -13,21 +13,15 @@ fileprivate let reusableCellIdentifier = String(describing: DailyScheduleViewCel
 
 class DailyScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    private var lectures: [Lecture]
+    private var lectures: [LectureJson]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-    }
     
-    init(lectures: [Lecture], date: String) {
+    init(lectures: [LectureJson], date: String) {
         
         self.lectures = lectures
         super.init(nibName: nil, bundle: nil)
@@ -43,6 +37,7 @@ class DailyScheduleViewController: UIViewController, UITableViewDelegate, UITabl
         let label = UILabel()
         label.text = date
         label.textAlignment = .center
+        label.backgroundColor = .white
         return label
     }
     
@@ -82,7 +77,7 @@ class DailyScheduleViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let lecture = lectures[indexPath.row]
+//        let lecture = lectures[indexPath.row]
         
 //        let lectureDetailViewController = LectureDetailViewController(lectureInfo: lecture)
 //        navigationController?.pushViewController(lectureDetailViewController, animated: true)

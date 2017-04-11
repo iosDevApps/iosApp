@@ -20,7 +20,7 @@ class DailyScheduleViewCell: UITableViewCell {
 
     }
     
-    func setupCell(lectureInfo: Lecture) {
+    func setupCell(lectureInfo: LectureJson) {
         
         let lectureTitleLabel = UILabel()
         let lectureLecturer = UILabel()

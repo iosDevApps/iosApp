@@ -30,7 +30,7 @@ class LectureDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    init(lectureInfo: Lecture) {
+    init(lectureInfo: LectureJson) {
         self.lecturerBio = lectureInfo.lecturer.lecturerName
         self.lectureTitle = lectureInfo.lectureTitle
         self.lecturerName = lectureInfo.lecturer.lecturerShortBio
