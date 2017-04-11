@@ -9,7 +9,7 @@
 import UIKit
 import PureLayout
 
-fileprivate let reusableCellIdentifier = String(describing: CalendarViewCell.self)
+fileprivate let reusableCellIdentifier = String(describing: DailyScheduleViewCell.self)
 
 class DailyScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -20,6 +20,9 @@ class DailyScheduleViewController: UIViewController, UITableViewDelegate, UITabl
 
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
     }
@@ -45,7 +48,7 @@ class DailyScheduleViewController: UIViewController, UITableViewDelegate, UITabl
     
     private func configureTable(date: String) {
         let scheduleTableView = UITableView()
-        scheduleTableView.register(CalendarViewCell.self, forCellReuseIdentifier: reusableCellIdentifier)
+        scheduleTableView.register(DailyScheduleViewCell.self, forCellReuseIdentifier: reusableCellIdentifier)
         scheduleTableView.delegate = self
         scheduleTableView.dataSource = self
         
@@ -81,14 +84,14 @@ class DailyScheduleViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let lecture = lectures[indexPath.row]
         
-        let lectureDetailViewController = LectureDetailViewController(lectureInfo: lecture)
-        navigationController?.pushViewController(lectureDetailViewController, animated: true)
+//        let lectureDetailViewController = LectureDetailViewController(lectureInfo: lecture)
+//        navigationController?.pushViewController(lectureDetailViewController, animated: true)
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: reusableCellIdentifier, for: indexPath) as! CalendarViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: reusableCellIdentifier, for: indexPath) as! DailyScheduleViewCell
         
         cell.setupCell(lectureInfo: lectures[indexPath.row])
         return cell

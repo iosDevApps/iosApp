@@ -25,10 +25,10 @@ class EventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        schedule = createScheduleFromJson()
-//        persitanceService!.createEvent(withEventId: Int16(schedule!.eventId), days: Int16(schedule!.scheduleDuration), schedule: schedule!) { event in
-//            print("photo created", event.eventId)
-//        }
+        schedule = createScheduleFromJson()
+        persistanceService!.createEvent(withEventId: schedule!.eventId, eventName: schedule!.eventName, days: Int16(schedule!.scheduleDuration)) { event in
+            print("photo created", event.eventId)
+        }
         setupTableView()
         
         self.view.addSubview(tableView)
@@ -51,7 +51,7 @@ class EventViewController: UIViewController {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44
-        let request = EventSchedule.sortedFetchRequest
+        let request = Event.sortedFetchRequest
         request.fetchBatchSize = 20
         if let frc = persistanceService?.fetchController(forRequest: request) {
             dataSource = TableViewDataSource(tableView: tableView,
@@ -93,11 +93,11 @@ class EventViewController: UIViewController {
 }
 
 extension EventViewController: TableViewDataSourceDelegate {
-    func configure(_ cell: EventTableViewCell, for object: EventSchedule) {
+    func configure(_ cell: EventTableViewCell, for object: Event) {
         cell.configure(for: object)
     }
     
-    func deleteAction(for object: EventSchedule) {
+    func deleteAction(for object: Event) {
         persistanceService?.delete(event: object)
     }
 }

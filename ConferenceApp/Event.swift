@@ -1,5 +1,5 @@
 //
-//  EventSchedule.swift
+//  Event.swift
 //  ConferenceApp
 //
 //  Created by luka on 06/04/2017.
@@ -9,22 +9,22 @@
 import Foundation
 import CoreData
 
-public final class EventSchedule: ManagedObject {
-    @NSManaged public private(set) var eventId: Int16
+public final class Event: ManagedObject {
+    @NSManaged public private(set) var eventId: String
+    @NSManaged public private(set) var eventName: String
     @NSManaged public private(set) var days: Int16
-    @NSManaged public private(set) var schedule: [Any]
     
     static func insert(into context: NSManagedObjectContext,
-                       eventId: Int16,
+                       eventId: String,
+                       eventName: String,
                        days: Int16,
-                       schedule: Schedule,
-                       completion: @escaping (EventSchedule) -> ()) {
+                       completion: @escaping (Event) -> ()) {
         
         context.perform {
-            let event: EventSchedule = context.insertObject()
+            let event: Event = context.insertObject()
             event.eventId = eventId
             event.days = days
-            event.schedule = ["schedule"]
+            event.eventName = eventName
             _ = context.saveOrRollback()
 
             completion(event)

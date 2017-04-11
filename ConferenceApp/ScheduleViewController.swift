@@ -11,19 +11,19 @@ import UIKit
 class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
     private var schedule: Schedule?
-    private var persistanceService: PersistanceService?
+//    private var persistanceService: PersistanceService?
     private var dailySchedules = [DailyScheduleViewController]()
     
-    convenience init(persistanceService: PersistanceService?) {
-        self.init()
-        self.persistanceService = persistanceService
-    }
+//    convenience init(persistanceService: PersistanceService?) {
+//        self.init()
+//        self.persistanceService = persistanceService
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationBarViewSetUp()
-        
+        view.backgroundColor = .white
         self.schedule = createScheduleFromJson()
         
         createDailySchedulesArray()
@@ -70,7 +70,6 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
                     
                     let parsedData = try JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
                     let schedule = Schedule(json: parsedData)
-                    
                     
                     return schedule
                     

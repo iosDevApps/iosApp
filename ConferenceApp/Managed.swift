@@ -26,12 +26,12 @@ extension Managed {
 }
 
 extension Managed where Self: NSManagedObject {
-    static var entityName: String { return "EventSchedule" }
+    static var entityName: String { return "Event" }
 //    static var entity: NSEntityDescription { return entity()  }
 //    static var entityName: String { return entity.name!  }
 }
 
-extension EventSchedule: Managed{
+extension Event: Managed{
     static var defaultSortDescriptors: [NSSortDescriptor] {
         return [NSSortDescriptor(key: #keyPath(eventId), ascending: false)]
     }

@@ -15,14 +15,14 @@
 		A12C957F1E9C2D8500B015CB /* NSManagedObjectContext + Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C957E1E9C2D8500B015CB /* NSManagedObjectContext + Utilities.swift */; };
 		A162F82A1E95CD25006D1B36 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A162F8281E95CD25006D1B36 /* DataModel.xcdatamodeld */; };
 		A162F82C1E95CDCE006D1B36 /* ManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A162F82B1E95CDCE006D1B36 /* ManagedObject.swift */; };
-		A162F82E1E95CE08006D1B36 /* EventSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A162F82D1E95CE08006D1B36 /* EventSchedule.swift */; };
+		A162F82E1E95CE08006D1B36 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A162F82D1E95CE08006D1B36 /* Event.swift */; };
 		A16B22A61E8430790074F1BB /* untitled.json in Resources */ = {isa = PBXBuildFile; fileRef = A16B22A31E8430790074F1BB /* untitled.json */; };
 		A16B22A71E8430790074F1BB /* LectureDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22A41E8430790074F1BB /* LectureDetailViewController.swift */; };
 		A16B22A81E8430790074F1BB /* LectureDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A16B22A51E8430790074F1BB /* LectureDetailViewController.xib */; };
 		A16B22AE1E8431310074F1BB /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22AB1E8431310074F1BB /* Schedule.swift */; };
 		A16B22AF1E8431310074F1BB /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22AC1E8431310074F1BB /* Lecture.swift */; };
 		A16B22B01E8431310074F1BB /* Lecturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22AD1E8431310074F1BB /* Lecturer.swift */; };
-		A16B22B71E8431490074F1BB /* CalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22B31E8431490074F1BB /* CalendarViewCell.swift */; };
+		A16B22B71E8431490074F1BB /* DailyScheduleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22B31E8431490074F1BB /* DailyScheduleViewCell.swift */; };
 		A16B22B81E8431490074F1BB /* CalendarViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A16B22B41E8431490074F1BB /* CalendarViewCell.xib */; };
 		A16B22BB1E84365A0074F1BB /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22B91E84365A0074F1BB /* ScheduleViewController.swift */; };
 		A16B22BF1E8480A40074F1BB /* DailyScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22BD1E8480A40074F1BB /* DailyScheduleViewController.swift */; };
@@ -78,14 +78,14 @@
 		A12C957E1E9C2D8500B015CB /* NSManagedObjectContext + Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext + Utilities.swift"; sourceTree = "<group>"; };
 		A162F8291E95CD25006D1B36 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		A162F82B1E95CDCE006D1B36 /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObject.swift; sourceTree = "<group>"; };
-		A162F82D1E95CE08006D1B36 /* EventSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSchedule.swift; sourceTree = "<group>"; };
+		A162F82D1E95CE08006D1B36 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		A16B22A31E8430790074F1BB /* untitled.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = untitled.json; sourceTree = "<group>"; };
 		A16B22A41E8430790074F1BB /* LectureDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureDetailViewController.swift; sourceTree = "<group>"; };
 		A16B22A51E8430790074F1BB /* LectureDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LectureDetailViewController.xib; sourceTree = "<group>"; };
 		A16B22AB1E8431310074F1BB /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		A16B22AC1E8431310074F1BB /* Lecture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
 		A16B22AD1E8431310074F1BB /* Lecturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lecturer.swift; sourceTree = "<group>"; };
-		A16B22B31E8431490074F1BB /* CalendarViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewCell.swift; sourceTree = "<group>"; };
+		A16B22B31E8431490074F1BB /* DailyScheduleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyScheduleViewCell.swift; sourceTree = "<group>"; };
 		A16B22B41E8431490074F1BB /* CalendarViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarViewCell.xib; sourceTree = "<group>"; };
 		A16B22B91E84365A0074F1BB /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		A16B22BD1E8480A40074F1BB /* DailyScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyScheduleViewController.swift; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 				A16B22AD1E8431310074F1BB /* Lecturer.swift */,
 				A162F8281E95CD25006D1B36 /* DataModel.xcdatamodeld */,
 				A162F82B1E95CDCE006D1B36 /* ManagedObject.swift */,
-				A162F82D1E95CE08006D1B36 /* EventSchedule.swift */,
+				A162F82D1E95CE08006D1B36 /* Event.swift */,
 				A12C95751E9A4F1C00B015CB /* PersistanceService.swift */,
 				A12C95771E9BA6D700B015CB /* Managed.swift */,
 			);
@@ -207,7 +207,7 @@
 		A16B22C11E8480E60074F1BB /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				A16B22B31E8431490074F1BB /* CalendarViewCell.swift */,
+				A16B22B31E8431490074F1BB /* DailyScheduleViewCell.swift */,
 				A16B22B41E8431490074F1BB /* CalendarViewCell.xib */,
 				A12C957B1E9C166800B015CB /* EventTableViewCell.swift */,
 			);
@@ -613,9 +613,9 @@
 				A12C95781E9BA6D700B015CB /* Managed.swift in Sources */,
 				D2B669E31E7FC63400C61ADB /* LoginViewController.swift in Sources */,
 				D215426A1E80110200997478 /* LoginViewModel.swift in Sources */,
-				A16B22B71E8431490074F1BB /* CalendarViewCell.swift in Sources */,
+				A16B22B71E8431490074F1BB /* DailyScheduleViewCell.swift in Sources */,
 				D21542731E801BFD00997478 /* LoginResult.swift in Sources */,
-				A162F82E1E95CE08006D1B36 /* EventSchedule.swift in Sources */,
+				A162F82E1E95CE08006D1B36 /* Event.swift in Sources */,
 				A12C95761E9A4F1C00B015CB /* PersistanceService.swift in Sources */,
 				A162F82C1E95CDCE006D1B36 /* ManagedObject.swift in Sources */,
 				A12C957A1E9C06F900B015CB /* TableViewDataSource.swift in Sources */,

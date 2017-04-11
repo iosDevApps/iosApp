@@ -24,7 +24,7 @@ class EventTableViewCell: UITableViewCell {
 }
 
 extension EventTableViewCell {
-    func configure(for event: EventSchedule) {
-        self.textLabel?.text = String(describing: event.eventId)
+    func configure(for event: Event) {
+        self.textLabel?.text = event.eventName
     }
 }

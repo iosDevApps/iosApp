@@ -1,5 +1,5 @@
 //
-//  CalendarViewCell.swift
+//  DailyScheduleViewCell.swift
 //  ScheduleApp
 //
 //  Created by luka on 15/03/2017.
@@ -9,7 +9,7 @@
 import UIKit
 import PureLayout
 
-class CalendarViewCell: UITableViewCell {
+class DailyScheduleViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,7 +20,6 @@ class CalendarViewCell: UITableViewCell {
 
     }
     
-
     func setupCell(lectureInfo: Lecture) {
         
         let lectureTitleLabel = UILabel()
