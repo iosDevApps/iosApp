@@ -62,12 +62,12 @@ extension PersistanceService {
     
     func createEvent(withEventId eventId: String,
                      eventName: String,
-                     days: Int16,
+                     eventDuration: Int16,
                      completion: @escaping (Event) -> ()) {
         guard let mainContext = mainContext else {
             fatalError("context not available")
         }
-        Event.insert(into: mainContext, eventId: eventId, eventName: eventName, days: days) { event in
+        Event.insert(into: mainContext, eventId: eventId, eventName: eventName, eventDuration: eventDuration) { event in
             completion(event)
         }
     }

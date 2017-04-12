@@ -11,16 +11,22 @@ import UIKit
 class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
     private var event: EventJson?
+    private var persistanceService: PersistanceService?
     private var dailySchedules = [DailyScheduleViewController]()
     
 
+    convenience init(persistanceService: PersistanceService?) {
+        self.init()
+        self.persistanceService = persistanceService
+        self.event = createEventFromJson()
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationBarViewSetUp()
         view.backgroundColor = .white
-        
-        self.event = createEventFromJson()
         createDailySchedulesArray()
 
         self.delegate = self
@@ -31,24 +37,24 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
             setViewControllers([viewController], direction: .forward, animated: true, completion: nil)
         }
         
-        
     }
-    
-
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
     
     private func navigationBarViewSetUp () {
         
-        self.edgesForExtendedLayout = []
+//        self.edgesForExtendedLayout = []
+        self.automaticallyAdjustsScrollViewInsets = false
         self.navigationController!.navigationBar.isTranslucent = false
         self.navigationController!.navigationBar.backgroundColor = UIColor.white
         self.navigationItem.title = "Schedule"
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(saveEvent))
+        self.navigationItem.rightBarButtonItem = addButton
+        
     }
     
+    @objc private func saveEvent() {
+        
+    }
     
-
     private func createDailySchedulesArray() {
         
         let schedule = self.event?.schedule

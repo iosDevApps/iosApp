@@ -17,7 +17,6 @@ class DailyScheduleViewController: UIViewController, UITableViewDelegate, UITabl
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     

@@ -12,13 +12,11 @@ class LectureJson {
     
     let lectureTitle: String
     let lectureScheduledTime: String
-    let lecturerName: String
     let lectureLocation: String
     let lectureShortDescription: String
     let lecturer: LecturerJson
 
     init?(lecturesInfo: [String: Any]) {
-        
         guard
             let lectureScheduledTime = lecturesInfo["time"] as? String,
             let lectureTitle = lecturesInfo["title"] as? String,
@@ -33,8 +31,6 @@ class LectureJson {
         let lecturer = LecturerJson(lecturerInfo: lecturerInfo)
         
         self.lecturer = lecturer!
-        
-        self.lecturerName = (lecturer?.lecturerName)!
         
         self.lectureShortDescription = lectureShortDescription
         self.lectureLocation = lectureLocation

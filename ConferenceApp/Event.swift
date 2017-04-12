@@ -12,18 +12,18 @@ import CoreData
 public final class Event: ManagedObject {
     @NSManaged public private(set) var eventId: String
     @NSManaged public private(set) var eventName: String
-    @NSManaged public private(set) var days: Int16
+    @NSManaged public private(set) var eventDuration: Int16
     
     static func insert(into context: NSManagedObjectContext,
                        eventId: String,
                        eventName: String,
-                       days: Int16,
+                       eventDuration: Int16,
                        completion: @escaping (Event) -> ()) {
         
         context.perform {
             let event: Event = context.insertObject()
             event.eventId = eventId
-            event.days = days
+            event.eventDuration = eventDuration
             event.eventName = eventName
             _ = context.saveOrRollback()
 

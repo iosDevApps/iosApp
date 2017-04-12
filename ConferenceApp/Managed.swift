@@ -14,7 +14,9 @@ protocol Managed: class, NSFetchRequestResult {
     static var defaultSortDescriptor: [NSSortDescriptor] {get}
 }
 
-extension Managed {
+extension Managed where Self: NSManagedObject {
+    static var entityName: String { return entity().name!  }
+
     static var defaultSortDescriptor: [NSSortDescriptor] {
         return []
     }
@@ -23,12 +25,6 @@ extension Managed {
         request.sortDescriptors = defaultSortDescriptor
         return request
     }
-}
-
-extension Managed where Self: NSManagedObject {
-    static var entityName: String { return "Event" }
-//    static var entity: NSEntityDescription { return entity()  }
-//    static var entityName: String { return entity.name!  }
 }
 
 extension Event: Managed{

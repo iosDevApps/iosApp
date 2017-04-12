@@ -28,7 +28,7 @@ class DailyScheduleViewCell: UITableViewCell {
         let lectureLocation = UILabel()
         
         lectureTitleLabel.text = lectureInfo.lectureTitle
-        lectureLecturer.text = lectureInfo.lecturerName
+        lectureLecturer.text = lectureInfo.lecturer.lecturerName
         lectureScheduledTime.text = lectureInfo.lectureScheduledTime
         lectureLocation.text = lectureInfo.lectureLocation
         

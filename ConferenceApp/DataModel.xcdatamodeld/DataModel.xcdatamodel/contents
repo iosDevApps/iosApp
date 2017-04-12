@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16A323" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Event" representedClassName=".Event" syncable="YES">
-        <attribute name="days" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="eventDuration" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="eventId" attributeType="String" indexed="YES" syncable="YES"/>
-        <attribute name="eventName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="eventName" attributeType="String" syncable="YES"/>
+        <relationship name="toLecturers" toMany="YES" deletionRule="Nullify" destinationEntity="Lecturer" inverseName="toEvent" inverseEntity="Lecturer" syncable="YES"/>
+        <relationship name="toLectures" toMany="YES" deletionRule="Nullify" destinationEntity="Lecture" inverseName="toEvent" inverseEntity="Lecture" syncable="YES"/>
+    </entity>
+    <entity name="Lecture" representedClassName="Lecture" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="scheduledTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shortDescritpion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="toEvent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="toLectures" inverseEntity="Event" syncable="YES"/>
+        <relationship name="toLecturer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Lecturer" inverseName="toLecture" inverseEntity="Lecturer" syncable="YES"/>
+    </entity>
+    <entity name="Lecturer" representedClassName="Lecturer" syncable="YES">
+        <attribute name="biography" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="toEvent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="toLecturers" inverseEntity="Event" syncable="YES"/>
+        <relationship name="toLecture" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Lecture" inverseName="toLecturer" inverseEntity="Lecture" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="-63" positionY="-18" width="128" height="30"/>
+        <element name="Event" positionX="-144" positionY="-81" width="128" height="118"/>
+        <element name="Lecture" positionX="34" positionY="86" width="128" height="148"/>
+        <element name="Lecturer" positionX="-315" positionY="131" width="128" height="103"/>
     </elements>
 </model>

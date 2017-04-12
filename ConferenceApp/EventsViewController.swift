@@ -10,13 +10,12 @@ import UIKit
 import CoreData
 import PureLayout
 
-class EventViewController: UIViewController {
+class EventsViewController: UIViewController {
     
     fileprivate var persistanceService: PersistanceService? = nil
     
-    var tableView = UITableView()
-    fileprivate var dataSource: TableViewDataSource<EventViewController>?
-    private var event: EventJson?
+    fileprivate var dataSource: TableViewDataSource<EventsViewController>?
+    fileprivate var event: EventJson?
 
     convenience init(persistanceService: PersistanceService?) {
         self.init()
@@ -25,14 +24,11 @@ class EventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        event = createEventFromJson()
-        persistanceService!.createEvent(withEventId: event!.eventId, eventName: event!.eventName, days: Int16(event!.eventDuration)) { event in
-            print("event ID:", event.eventId)
-        }
+//        event = createEventFromJson()
+//        persistanceService!.createEvent(withEventId: event!.eventId, eventName: event!.eventName, eventDuration: Int16(event!.eventDuration)) { event in
+//            print("event ID:", event.eventId)
+//        }
         setupTableView()
-        
-        self.view.addSubview(tableView)
-        tableView.autoPinEdgesToSuperviewEdges()
 
     }
 
@@ -43,6 +39,8 @@ class EventViewController: UIViewController {
     
     fileprivate func setupTableView() {
         
+        let tableView = UITableView()
+
         let identifier = String(describing: EventTableViewCell.self)
         
         tableView.register(EventTableViewCell.self, forCellReuseIdentifier: identifier)
@@ -58,7 +56,8 @@ class EventViewController: UIViewController {
                                              delegate: self)
         }
         tableView.delegate = self
-        
+        self.view.addSubview(tableView)
+        tableView.autoPinEdgesToSuperviewEdges()
     }
     
     private func createEventFromJson() -> EventJson? {
@@ -89,7 +88,7 @@ class EventViewController: UIViewController {
     
 }
 
-extension EventViewController: TableViewDataSourceDelegate {
+extension EventsViewController: TableViewDataSourceDelegate {
     func configure(_ cell: EventTableViewCell, for object: Event) {
         cell.configure(for: object)
     }
@@ -99,7 +98,7 @@ extension EventViewController: TableViewDataSourceDelegate {
     }
 }
 
-extension EventViewController: UITableViewDelegate {
+extension EventsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)

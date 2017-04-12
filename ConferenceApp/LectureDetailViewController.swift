@@ -11,11 +11,8 @@ import UIKit
 class LectureDetailViewController: UIViewController {
     
     @IBOutlet weak var lectureTitleLabel: UILabel!
-
     @IBOutlet weak var lecturerNameLabel: UILabel!
-    
     @IBOutlet weak var lectureBioLabel: UILabel!
-    
     @IBOutlet weak var lectureDescritptionLabel: UILabel!
     
     private var lectureTitle: String

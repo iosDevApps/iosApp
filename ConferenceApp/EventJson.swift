@@ -11,7 +11,7 @@ import Foundation
 class EventJson {
     let eventId: String
     let eventName: String
-    var schedule: ScheduleJson
+    let schedule: ScheduleJson
     let eventDuration: Int
     
     init?(json: [String: Any]) {
