@@ -24,12 +24,7 @@ class EventsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        event = createEventFromJson()
-//        persistanceService!.createEvent(withEventId: event!.eventId, eventName: event!.eventName, eventDuration: Int16(event!.eventDuration)) { event in
-//            print("event ID:", event.eventId)
-//        }
         setupTableView()
-
     }
 
     override func didReceiveMemoryWarning() {

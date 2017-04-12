@@ -10,6 +10,7 @@ import Foundation
 import CoreData
 
 public final class Event: ManagedObject {
+    // rename
     @NSManaged public private(set) var eventId: String
     @NSManaged public private(set) var eventName: String
     @NSManaged public private(set) var eventDuration: Int16
