@@ -9,22 +9,18 @@
 import UIKit
 import PureLayout
 
-fileprivate let reusableCellIdentifier = String(describing: CalendarViewCell.self)
+fileprivate let reusableCellIdentifier = String(describing: DailyScheduleViewCell.self)
 
 class DailyScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    private var lectures: [Lecture]
+    private var lectures: [LectureJson]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-    }
     
-    init(lectures: [Lecture], date: String, navigationBarHeight: CGFloat) {
+    init(lectures: [LectureJson], date: String) {
         
         self.lectures = lectures
         super.init(nibName: nil, bundle: nil)
@@ -40,12 +36,13 @@ class DailyScheduleViewController: UIViewController, UITableViewDelegate, UITabl
         let label = UILabel()
         label.text = date
         label.textAlignment = .center
+        label.backgroundColor = .white
         return label
     }
     
     private func configureTable(date: String) {
         let scheduleTableView = UITableView()
-        scheduleTableView.register(CalendarViewCell.self, forCellReuseIdentifier: reusableCellIdentifier)
+        scheduleTableView.register(DailyScheduleViewCell.self, forCellReuseIdentifier: reusableCellIdentifier)
         scheduleTableView.delegate = self
         scheduleTableView.dataSource = self
         
@@ -79,19 +76,16 @@ class DailyScheduleViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let lecture = lectures[indexPath.row]
+//        let lecture = lectures[indexPath.row]
         
-        let lectureDetailViewController = LectureDetailViewController(lectureInfo: lecture)
-        navigationController?.pushViewController(lectureDetailViewController, animated: true)
+//        let lectureDetailViewController = LectureDetailViewController(lectureInfo: lecture)
+//        navigationController?.pushViewController(lectureDetailViewController, animated: true)
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: reusableCellIdentifier, for: indexPath) as! CalendarViewCell
-
-//        cell.backgroundColor = UIColor.cyan
-//        cell.textLabel!.text = lectures[indexPath.row].lectureTitle
+        let cell = tableView.dequeueReusableCell(withIdentifier: reusableCellIdentifier, for: indexPath) as! DailyScheduleViewCell
         
         cell.setupCell(lectureInfo: lectures[indexPath.row])
         return cell

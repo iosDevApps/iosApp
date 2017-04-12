@@ -10,42 +10,63 @@ import UIKit
 
 class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
-    private var schedule: Schedule?
+    private var event: EventJson?
+    private var persistanceService: PersistanceService?
     private var dailySchedules = [DailyScheduleViewController]()
+    
 
+    convenience init(persistanceService: PersistanceService?) {
+        self.init()
+        self.persistanceService = persistanceService
+        self.event = createEventFromJson()
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.edgesForExtendedLayout = []
-
-        self.schedule = createScheduleFromJson()
-        
+        navigationBarViewSetUp()
+        view.backgroundColor = .white
         createDailySchedulesArray()
 
         self.delegate = self
         self.dataSource = self
         
 
-
         if let viewController = dailySchedules.first {
             setViewControllers([viewController], direction: .forward, animated: true, completion: nil)
         }
+        
     }
     
+    private func navigationBarViewSetUp () {
+        
+//        self.edgesForExtendedLayout = []
+        self.automaticallyAdjustsScrollViewInsets = false
+        self.navigationController!.navigationBar.isTranslucent = false
+        self.navigationController!.navigationBar.backgroundColor = UIColor.white
+        self.navigationItem.title = "Schedule"
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(saveEvent))
+        self.navigationItem.rightBarButtonItem = addButton
+        
+    }
     
-
+    @objc private func saveEvent() {
+        
+    }
+    
     private func createDailySchedulesArray() {
         
+        let schedule = self.event?.schedule
         let sortedKeys = Array(schedule!.lecturesSchedule.keys).sorted(by: <)
-        let height = self.navigationController!.navigationBar.frame.height + UIApplication.shared.statusBarFrame.height
 
         for key in sortedKeys {
-            let dailySchedule = DailyScheduleViewController(lectures: (schedule?.lecturesSchedule[key])!, date: key, navigationBarHeight: height)
+            let dailySchedule = DailyScheduleViewController(lectures: (schedule?.lecturesSchedule[key])!, date: key)
             self.dailySchedules.append(dailySchedule)
         }
     }
     
-    private func createScheduleFromJson() -> Schedule? {
+    private func createEventFromJson() -> EventJson? {
         
         let jsonFileName = "untitled"
         
@@ -55,9 +76,8 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
                 do {
                     
                     let parsedData = try JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
-                    let schedule = Schedule(json: parsedData)
-                    
-                    return schedule
+                    let event = EventJson(json: parsedData)
+                    return event
                     
                 } catch let error {
                     print(error.localizedDescription)

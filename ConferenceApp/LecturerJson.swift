@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Lecturer {
+class LecturerJson {
     let lecturerName: String
     let lecturerShortBio: String
     

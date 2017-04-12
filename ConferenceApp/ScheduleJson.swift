@@ -8,29 +8,16 @@
 
 import Foundation
 
-class Schedule {
+class ScheduleJson {
     
-    var lecturesSchedule = [String: [Lecture]]()
-    let scheduleDuration: Int?
-    let eventId: Int
+    var lecturesSchedule = [String: [LectureJson]]()
     
-    init?(json: [String: Any]) {
-        guard
-            let data = json["data"] as? [String: Any],
-            let scheduleInfo = data["schedule"] as? [[String: Any]],
-            let scheduleDuration = data["days"] as? Int,
-            let eventId = data["event_id"] as? Int
-
-            else {
-                return nil
-        }
-        self.scheduleDuration = scheduleDuration
-        self.eventId = eventId
+    init?(scheduleInfo: [[String: Any]]) {
         lecturesInizialization(schedule: scheduleInfo)
     }
     
     func lecturesInizialization(schedule: [[String: Any]]) {
-        var lectures = [Lecture]()
+        var lectures = [LectureJson]()
         for dailySchedule in schedule {
             guard
                 let dailyScheduleDate = dailySchedule["day"] as? String,
@@ -39,7 +26,7 @@ class Schedule {
                  return
             }
             
-            lectures = dailyScheduleLectures.flatMap(Lecture.init)
+            lectures = dailyScheduleLectures.flatMap(LectureJson.init)
             self.lecturesSchedule[dailyScheduleDate] = lectures
         }
     }

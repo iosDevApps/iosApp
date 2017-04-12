@@ -1,5 +1,5 @@
 //
-//  CalendarViewCell.swift
+//  DailyScheduleViewCell.swift
 //  ScheduleApp
 //
 //  Created by luka on 15/03/2017.
@@ -9,23 +9,18 @@
 import UIKit
 import PureLayout
 
-class CalendarViewCell: UITableViewCell {
+class DailyScheduleViewCell: UITableViewCell {
 
-
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
-
-    func setupCell(lectureInfo: Lecture) {
+    func setupCell(lectureInfo: LectureJson) {
         
         let lectureTitleLabel = UILabel()
         let lectureLecturer = UILabel()
@@ -33,7 +28,7 @@ class CalendarViewCell: UITableViewCell {
         let lectureLocation = UILabel()
         
         lectureTitleLabel.text = lectureInfo.lectureTitle
-        lectureLecturer.text = lectureInfo.lecturerName
+        lectureLecturer.text = lectureInfo.lecturer.lecturerName
         lectureScheduledTime.text = lectureInfo.lectureScheduledTime
         lectureLocation.text = lectureInfo.lectureLocation
         
@@ -55,8 +50,6 @@ class CalendarViewCell: UITableViewCell {
         lectureLocation.autoPinEdge(.top, to: .bottom, of: lectureScheduledTime, withOffset: 10)
         lectureLocation.autoPinEdge(toSuperviewEdge: .bottom, withInset: 10)
         lectureLocation.autoPinEdge(toSuperviewEdge: .right, withInset: 10)
-
-
         
         
     }

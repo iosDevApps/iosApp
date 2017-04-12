@@ -8,18 +8,15 @@
 
 import Foundation
 
-class Lecture {
+class LectureJson {
     
     let lectureTitle: String
     let lectureScheduledTime: String
-    let lecturerName: String
     let lectureLocation: String
     let lectureShortDescription: String
-    let lecturer: Lecturer
-//    let lectureDate: String
+    let lecturer: LecturerJson
 
     init?(lecturesInfo: [String: Any]) {
-        
         guard
             let lectureScheduledTime = lecturesInfo["time"] as? String,
             let lectureTitle = lecturesInfo["title"] as? String,
@@ -31,11 +28,9 @@ class Lecture {
                 return nil
             }
         
-        let lecturer = Lecturer(lecturerInfo: lecturerInfo)
+        let lecturer = LecturerJson(lecturerInfo: lecturerInfo)
         
         self.lecturer = lecturer!
-        
-        self.lecturerName = (lecturer?.lecturerName)!
         
         self.lectureShortDescription = lectureShortDescription
         self.lectureLocation = lectureLocation
@@ -43,7 +38,6 @@ class Lecture {
         self.lectureTitle = lectureTitle
         self.lectureScheduledTime = lectureScheduledTime
         
-//        self.lectureDate = ""
     }
         
 }

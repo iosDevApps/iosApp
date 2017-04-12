@@ -11,11 +11,8 @@ import UIKit
 class LectureDetailViewController: UIViewController {
     
     @IBOutlet weak var lectureTitleLabel: UILabel!
-
     @IBOutlet weak var lecturerNameLabel: UILabel!
-    
     @IBOutlet weak var lectureBioLabel: UILabel!
-    
     @IBOutlet weak var lectureDescritptionLabel: UILabel!
     
     private var lectureTitle: String
@@ -30,7 +27,7 @@ class LectureDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    init(lectureInfo: Lecture) {
+    init(lectureInfo: LectureJson) {
         self.lecturerBio = lectureInfo.lecturer.lecturerName
         self.lectureTitle = lectureInfo.lectureTitle
         self.lecturerName = lectureInfo.lecturer.lecturerShortBio
@@ -43,5 +40,8 @@ class LectureDetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+
+    @IBAction func deleteEvent(_ sender: UIButton) {
+    }
 
 }

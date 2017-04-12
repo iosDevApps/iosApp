@@ -18,7 +18,7 @@ class PersistService {
         }
         
         set {
-            userDefaults.set(newValue, forKey:"email")
+            userDefaults.set(newValue, forKey: "email")
         }
     }
     
@@ -28,7 +28,7 @@ class PersistService {
         }
         
         set {
-            userDefaults.set(newValue, forKey:"password")
+            userDefaults.set(newValue, forKey: "password")
         }
     }
 }
