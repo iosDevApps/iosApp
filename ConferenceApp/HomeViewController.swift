@@ -35,4 +35,9 @@ class HomeViewController: UIViewController {
 
     }
 
+    @IBAction func profileTap(_ sender: UIButton) {
+        let profileService = ProfileService()
+        let profileViewController = ProfileViewController(profileService: profileService)
+        navigationController?.pushViewController(profileViewController, animated: true)
+    }
 }

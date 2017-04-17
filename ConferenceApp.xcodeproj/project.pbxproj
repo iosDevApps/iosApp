@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		79B2F9DD1D5A18F8145ADF79 /* Pods_ConferenceAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A36F0F63BE34DEAE8DD1EF /* Pods_ConferenceAppUITests.framework */; };
+		84795E1D1E9F47A100BCB2D0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84795E1B1E9F47A100BCB2D0 /* ProfileViewController.swift */; };
+		84795E1E1E9F47A100BCB2D0 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84795E1C1E9F47A100BCB2D0 /* ProfileViewController.xib */; };
+		84795E2C1EA1FD2500BCB2D0 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84795E2B1EA1FD2500BCB2D0 /* ProfileService.swift */; };
+		84795E2E1EA1FDE700BCB2D0 /* UserJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84795E2D1EA1FDE700BCB2D0 /* UserJson.swift */; };
+		84795E301EA1FF3600BCB2D0 /* JsonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84795E2F1EA1FF3600BCB2D0 /* JsonService.swift */; };
 		A12C95761E9A4F1C00B015CB /* PersistanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C95751E9A4F1C00B015CB /* PersistanceService.swift */; };
 		A12C95781E9BA6D700B015CB /* Managed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C95771E9BA6D700B015CB /* Managed.swift */; };
 		A12C957A1E9C06F900B015CB /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C95791E9C06F900B015CB /* TableViewDataSource.swift */; };
@@ -70,6 +75,11 @@
 		1BA565F8E2E4FD4B6A134FBA /* Pods-ConferenceAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConferenceAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConferenceAppTests/Pods-ConferenceAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		373291A751E829204141C4C4 /* Pods_ConferenceAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConferenceAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A033DEA428A385AC41FB4B6 /* Pods-ConferenceAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConferenceAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConferenceAppTests/Pods-ConferenceAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		84795E1B1E9F47A100BCB2D0 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		84795E1C1E9F47A100BCB2D0 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		84795E2B1EA1FD2500BCB2D0 /* ProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		84795E2D1EA1FDE700BCB2D0 /* UserJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserJson.swift; sourceTree = "<group>"; };
+		84795E2F1EA1FF3600BCB2D0 /* JsonService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonService.swift; sourceTree = "<group>"; };
 		9F824CCFC96D8621FC6CB183 /* Pods_ConferenceApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConferenceApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A12C95751E9A4F1C00B015CB /* PersistanceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistanceService.swift; sourceTree = "<group>"; };
 		A12C95771E9BA6D700B015CB /* Managed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Managed.swift; sourceTree = "<group>"; };
@@ -156,6 +166,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		84795E1A1E9F475000BCB2D0 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				84795E1B1E9F47A100BCB2D0 /* ProfileViewController.swift */,
+				84795E1C1E9F47A100BCB2D0 /* ProfileViewController.xib */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
 		94935B350CF6FAEDA87B2788 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +201,7 @@
 				A16B22AB1E8431310074F1BB /* ScheduleJson.swift */,
 				A16B22AC1E8431310074F1BB /* LectureJson.swift */,
 				A16B22AD1E8431310074F1BB /* LecturerJson.swift */,
+				84795E2D1EA1FDE700BCB2D0 /* UserJson.swift */,
 			);
 			name = ModelJson;
 			sourceTree = "<group>";
@@ -227,6 +247,8 @@
 			children = (
 				D215426E1E80153E00997478 /* LoginService.swift */,
 				D21542701E80159600997478 /* PersistService.swift */,
+				84795E2B1EA1FD2500BCB2D0 /* ProfileService.swift */,
+				84795E2F1EA1FF3600BCB2D0 /* JsonService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -289,6 +311,7 @@
 		D2B669E51E7FC63B00C61ADB /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				84795E1A1E9F475000BCB2D0 /* Profile */,
 				A16B22A91E8430EC0074F1BB /* Schedule */,
 				D2B669E81E7FC65D00C61ADB /* Home */,
 				D2B669E71E7FC65600C61ADB /* Registration */,
@@ -444,6 +467,7 @@
 			files = (
 				D2B669E41E7FC63400C61ADB /* LoginViewController.xib in Resources */,
 				D2B669BC1E7FBF3200C61ADB /* LaunchScreen.storyboard in Resources */,
+				84795E1E1E9F47A100BCB2D0 /* ProfileViewController.xib in Resources */,
 				A16B22A81E8430790074F1BB /* LectureDetailViewController.xib in Resources */,
 				A16B22A61E8430790074F1BB /* untitled.json in Resources */,
 				D2B669EE1E7FC67D00C61ADB /* HomeViewController.xib in Resources */,
@@ -612,15 +636,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				A12C957C1E9C166800B015CB /* EventTableViewCell.swift in Sources */,
+				84795E301EA1FF3600BCB2D0 /* JsonService.swift in Sources */,
 				A16B22BB1E84365A0074F1BB /* ScheduleViewController.swift in Sources */,
+				84795E2C1EA1FD2500BCB2D0 /* ProfileService.swift in Sources */,
 				A16B22BF1E8480A40074F1BB /* DailyScheduleViewController.swift in Sources */,
 				D2B669ED1E7FC67D00C61ADB /* HomeViewController.swift in Sources */,
 				A12C957F1E9C2D8500B015CB /* NSManagedObjectContext + Utilities.swift in Sources */,
+				84795E2E1EA1FDE700BCB2D0 /* UserJson.swift in Sources */,
 				D21542711E80159600997478 /* PersistService.swift in Sources */,
 				A12C95781E9BA6D700B015CB /* Managed.swift in Sources */,
 				D2B669E31E7FC63400C61ADB /* LoginViewController.swift in Sources */,
 				D215426A1E80110200997478 /* LoginViewModel.swift in Sources */,
 				A159FF741E9D86B90061C82A /* EventJson.swift in Sources */,
+				84795E1D1E9F47A100BCB2D0 /* ProfileViewController.swift in Sources */,
 				A16B22B71E8431490074F1BB /* DailyScheduleViewCell.swift in Sources */,
 				D21542731E801BFD00997478 /* LoginResult.swift in Sources */,
 				A162F82E1E95CE08006D1B36 /* Event.swift in Sources */,
