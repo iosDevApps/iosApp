@@ -37,6 +37,10 @@
 		D215426F1E80153E00997478 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D215426E1E80153E00997478 /* LoginService.swift */; };
 		D21542711E80159600997478 /* PersistService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21542701E80159600997478 /* PersistService.swift */; };
 		D21542731E801BFD00997478 /* LoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21542721E801BFD00997478 /* LoginResult.swift */; };
+		D21542861EA9C05A00997478 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21542851EA9C05A00997478 /* Operators.swift */; };
+		D21542891EA9C28100997478 /* LoginApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21542881EA9C28100997478 /* LoginApi.swift */; };
+		D215428B1EAA15FB00997478 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D215428A1EAA15FB00997478 /* BaseService.swift */; };
+		D215428D1EAA221D00997478 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D215428C1EAA221D00997478 /* ViewUtils.swift */; };
 		D2B669B21E7FBF3200C61ADB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B669B11E7FBF3200C61ADB /* AppDelegate.swift */; };
 		D2B669B91E7FBF3200C61ADB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B669B81E7FBF3200C61ADB /* Assets.xcassets */; };
 		D2B669BC1E7FBF3200C61ADB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B669BA1E7FBF3200C61ADB /* LaunchScreen.storyboard */; };
@@ -104,6 +108,10 @@
 		D215426E1E80153E00997478 /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		D21542701E80159600997478 /* PersistService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistService.swift; sourceTree = "<group>"; };
 		D21542721E801BFD00997478 /* LoginResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResult.swift; sourceTree = "<group>"; };
+		D21542851EA9C05A00997478 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		D21542881EA9C28100997478 /* LoginApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginApi.swift; sourceTree = "<group>"; };
+		D215428A1EAA15FB00997478 /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		D215428C1EAA221D00997478 /* ViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
 		D2B669AE1E7FBF3200C61ADB /* ConferenceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConferenceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B669B11E7FBF3200C61ADB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2B669B81E7FBF3200C61ADB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -222,6 +230,7 @@
 		A16B22AA1E8431220074F1BB /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				D21542871EA9C26C00997478 /* ApiModels */,
 				A12C957D1E9C2D5500B015CB /* Utilities */,
 				A159FF751E9DA6F10061C82A /* ModelJson */,
 				A162F8281E95CD25006D1B36 /* DataModel.xcdatamodeld */,
@@ -249,8 +258,26 @@
 				D21542701E80159600997478 /* PersistService.swift */,
 				84795E2B1EA1FD2500BCB2D0 /* ProfileService.swift */,
 				84795E2F1EA1FF3600BCB2D0 /* JsonService.swift */,
+				D215428A1EAA15FB00997478 /* BaseService.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		D21542841EA9C04B00997478 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D21542851EA9C05A00997478 /* Operators.swift */,
+				D215428C1EAA221D00997478 /* ViewUtils.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		D21542871EA9C26C00997478 /* ApiModels */ = {
+			isa = PBXGroup;
+			children = (
+				D21542881EA9C28100997478 /* LoginApi.swift */,
+			);
+			name = ApiModels;
 			sourceTree = "<group>";
 		};
 		D2B669A51E7FBF3200C61ADB = {
@@ -278,6 +305,7 @@
 		D2B669B01E7FBF3200C61ADB /* ConferenceApp */ = {
 			isa = PBXGroup;
 			children = (
+				D21542841EA9C04B00997478 /* Utils */,
 				A16B22AA1E8431220074F1BB /* DataModel */,
 				A16B22A31E8430790074F1BB /* untitled.json */,
 				D215426D1E80153200997478 /* Services */,
@@ -646,6 +674,8 @@
 				D21542711E80159600997478 /* PersistService.swift in Sources */,
 				A12C95781E9BA6D700B015CB /* Managed.swift in Sources */,
 				D2B669E31E7FC63400C61ADB /* LoginViewController.swift in Sources */,
+				D215428D1EAA221D00997478 /* ViewUtils.swift in Sources */,
+				D21542861EA9C05A00997478 /* Operators.swift in Sources */,
 				D215426A1E80110200997478 /* LoginViewModel.swift in Sources */,
 				A159FF741E9D86B90061C82A /* EventJson.swift in Sources */,
 				84795E1D1E9F47A100BCB2D0 /* ProfileViewController.swift in Sources */,
@@ -658,7 +688,9 @@
 				A162F82A1E95CD25006D1B36 /* DataModel.xcdatamodeld in Sources */,
 				D2B669B21E7FBF3200C61ADB /* AppDelegate.swift in Sources */,
 				D2B669F11E7FC69000C61ADB /* RegistrationViewController.swift in Sources */,
+				D215428B1EAA15FB00997478 /* BaseService.swift in Sources */,
 				D215426F1E80153E00997478 /* LoginService.swift in Sources */,
+				D21542891EA9C28100997478 /* LoginApi.swift in Sources */,
 				A16B22AF1E8431310074F1BB /* LectureJson.swift in Sources */,
 				A16B22AE1E8431310074F1BB /* ScheduleJson.swift in Sources */,
 				A16B22A71E8430790074F1BB /* LectureDetailViewController.swift in Sources */,

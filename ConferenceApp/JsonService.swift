@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 class JsonService {
     private let session = URLSession(configuration: .default)
@@ -20,10 +22,12 @@ class JsonService {
                 return
             }
             // resume() used because a DataTask is created in suspended state
-            self.session.dataTask(with: apiUrl, completionHandler: self.handleData).resume()
+            self.session
+                .dataTask(with: apiUrl, completionHandler: self.handleData)
+                .resume()
         }
     }
-    
+
     // handling the data from the DataTask
     private func handleData(rawData: Data?, rawURLResponse: URLResponse?, rawError: Error?) {
         if let error = rawError {
