@@ -10,10 +10,10 @@ import Foundation
 
 class LectureJson {
     
-    let lectureTitle: String
-    let lectureScheduledTime: String
-    let lectureLocation: String
-    let lectureShortDescription: String
+    let title: String
+    let scheduledTime: String
+    let location: String
+    let shortDescription: String
     let lecturer: LecturerJson
 
     init?(lecturesInfo: [String: Any]) {
@@ -32,11 +32,11 @@ class LectureJson {
         
         self.lecturer = lecturer!
         
-        self.lectureShortDescription = lectureShortDescription
-        self.lectureLocation = lectureLocation
+        self.shortDescription = lectureShortDescription
+        self.location = lectureLocation
 
-        self.lectureTitle = lectureTitle
-        self.lectureScheduledTime = lectureScheduledTime
+        self.title = lectureTitle
+        self.scheduledTime = lectureScheduledTime
         
     }
         

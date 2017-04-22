@@ -27,10 +27,10 @@ class DailyScheduleViewCell: UITableViewCell {
         let lectureScheduledTime = UILabel()
         let lectureLocation = UILabel()
         
-        lectureTitleLabel.text = lectureInfo.lectureTitle
-        lectureLecturer.text = lectureInfo.lecturer.lecturerName
-        lectureScheduledTime.text = lectureInfo.lectureScheduledTime
-        lectureLocation.text = lectureInfo.lectureLocation
+        lectureTitleLabel.text = lectureInfo.title
+        lectureLecturer.text = lectureInfo.lecturer.name
+        lectureScheduledTime.text = lectureInfo.scheduledTime
+        lectureLocation.text = lectureInfo.location
         
         self.addSubview(lectureTitleLabel)
         self.addSubview(lectureLecturer)

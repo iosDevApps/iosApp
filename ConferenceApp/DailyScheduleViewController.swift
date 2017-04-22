@@ -14,15 +14,18 @@ fileprivate let reusableCellIdentifier = String(describing: DailyScheduleViewCel
 class DailyScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private var lectures: [LectureJson]
+    private(set) var date: String
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
     }
     
     
     init(lectures: [LectureJson], date: String) {
         
         self.lectures = lectures
+        self.date = date
         super.init(nibName: nil, bundle: nil)
 
         configureTable(date: date)

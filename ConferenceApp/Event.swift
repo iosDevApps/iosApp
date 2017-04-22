@@ -10,24 +10,49 @@ import Foundation
 import CoreData
 
 public final class Event: ManagedObject {
-    @NSManaged public private(set) var eventId: String
-    @NSManaged public private(set) var eventName: String
-    @NSManaged public private(set) var eventDuration: Int16
+    // rename
+    @NSManaged public private(set) var id: String
+    @NSManaged public private(set) var name: String
+    @NSManaged public private(set) var duration: Int16
+    @NSManaged public private(set) var days: Set<Day>
+    
+    fileprivate var mutableDays: NSMutableSet {
+        return mutableSetValue(forKey: #keyPath(days))
+    }
+    
+    
+    private static func getDatesFromSchedule(schedule: ScheduleJson) -> [String] {
+        return Array(schedule.lecturesSchedule.keys).sorted(by: <)
+    }
     
     static func insert(into context: NSManagedObjectContext,
                        eventId: String,
                        eventName: String,
                        eventDuration: Int16,
+                       schedule: ScheduleJson,
                        completion: @escaping (Event) -> ()) {
-        
+        let scheduledDays = Event.getDatesFromSchedule(schedule: schedule)
         context.perform {
             let event: Event = context.insertObject()
-            event.eventId = eventId
-            event.eventDuration = eventDuration
-            event.eventName = eventName
+            var days = [Day]()
+            event.id = eventId
+            event.duration = eventDuration
+            event.name = eventName
+            for scheduledDay in scheduledDays {
+                let lectures = schedule.lecturesSchedule[scheduledDay]
+                let day = Day.findOrCreateDay(for: scheduledDay, lecturesJson: lectures!, into: context)
+                print(NSStringFromClass(type(of: day)))
+                days.append(day)
+            }
+            event.mutableDays.addObjects(from: days)
             _ = context.saveOrRollback()
-
             completion(event)
         }
+    }
+}
+
+extension Event: Managed{
+    static var defaultSortDescriptors: [NSSortDescriptor] {
+        return [NSSortDescriptor(key: #keyPath(id), ascending: false)]
     }
 }

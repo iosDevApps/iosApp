@@ -13,7 +13,6 @@ import PureLayout
 class EventsViewController: UIViewController {
     
     fileprivate var persistanceService: PersistanceService? = nil
-    
     fileprivate var dataSource: TableViewDataSource<EventsViewController>?
     fileprivate var event: EventJson?
 
@@ -24,12 +23,7 @@ class EventsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        event = createEventFromJson()
-//        persistanceService!.createEvent(withEventId: event!.eventId, eventName: event!.eventName, eventDuration: Int16(event!.eventDuration)) { event in
-//            print("event ID:", event.eventId)
-//        }
         setupTableView()
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,6 +41,7 @@ class EventsViewController: UIViewController {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44
+        let proba = Day.sortedFetchRequest
         let request = Event.sortedFetchRequest
         request.fetchBatchSize = 20
         if let frc = persistanceService?.fetchController(forRequest: request) {
@@ -60,31 +55,31 @@ class EventsViewController: UIViewController {
         tableView.autoPinEdgesToSuperviewEdges()
     }
     
-    private func createEventFromJson() -> EventJson? {
-        
-        let jsonFileName = "untitled"
-        
-        if let path = Bundle.main.path(forResource: jsonFileName, ofType: "json") {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
-                do {
-                    
-                    let parsedData = try JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
-                    let event = EventJson(json: parsedData)
-                    return event
-                    
-                } catch let error {
-                    print(error.localizedDescription)
-                }
-            } catch let error {
-                print(error.localizedDescription)
-            }
-        } else {
-            print("Invalid filename/path.")
-        }
-        
-        return nil
-    }
+//    private func createEventFromJson() -> EventJson? {
+//        
+//        let jsonFileName = "event"
+//        
+//        if let path = Bundle.main.path(forResource: jsonFileName, ofType: "json") {
+//            do {
+//                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+//                do {
+//                    
+//                    let parsedData = try JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
+//                    let event = EventJson(json: parsedData)
+//                    return event
+//                    
+//                } catch let error {
+//                    print(error.localizedDescription)
+//                }
+//            } catch let error {
+//                print(error.localizedDescription)
+//            }
+//        } else {
+//            print("Invalid filename/path.")
+//        }
+//        
+//        return nil
+//    }
     
 }
 

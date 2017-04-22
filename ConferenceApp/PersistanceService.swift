@@ -63,13 +63,46 @@ extension PersistanceService {
     func createEvent(withEventId eventId: String,
                      eventName: String,
                      eventDuration: Int16,
+                     schedule: ScheduleJson,
                      completion: @escaping (Event) -> ()) {
         guard let mainContext = mainContext else {
             fatalError("context not available")
         }
-        Event.insert(into: mainContext, eventId: eventId, eventName: eventName, eventDuration: eventDuration) { event in
-            completion(event)
+        
+        Event.insert(into: mainContext,
+                     eventId: eventId,
+                     eventName: eventName,
+                     eventDuration: eventDuration,
+                     schedule: schedule) { event in
+                            completion(event)
+                    }
+    }
+    
+    func createDay(date: Date) {
+        
+        guard let mainContext = mainContext else {
+            fatalError("context not available")
         }
+        Day.insert(into: mainContext, date: date)
+    }
+    
+    func createLecture(title: String,
+                       shortDescription: String,
+                       scheduledTime: String,
+                       location: String) {
+        guard let mainContext = mainContext else {
+            fatalError("context not available")
+        }
+        Lecture.insert(into: mainContext, title: title, location: location, scheduledTime: scheduledTime, shortDescription: shortDescription)
+    }
+    
+    func createLecturer(name: String,
+                        shortBio: String) {
+        guard let mainContext = mainContext else {
+            fatalError("context not available")
+        }
+        Lecturer.insert(into: mainContext, name: name, shortBio: shortBio)
+
     }
     
     func delete(event: Event) {

@@ -9,26 +9,22 @@
 import Foundation
 
 class EventJson {
-    let eventId: String
-    let eventName: String
-    let schedule: ScheduleJson
-    let eventDuration: Int
+    
+    let id: String
+    let name: String
+    let duration: Int
     
     init?(json: [String: Any]) {
         guard
-            let data = json["data"] as? [String: Any],
-            let schedule = data["schedule"] as? [[String: Any]],
-            let eventDuration = data["days"] as? Int,
-            let eventId = data["event_id"] as? String,
-            let eventName = data["eventName"] as? String
+            let eventDuration = json["days"] as? Int,
+            let eventId = json["id"] as? String,
+            let eventName = json["title"] as? String
             
             else {
                 return nil
         }
-        self.eventDuration = eventDuration
-        self.eventId = eventId
-        self.eventName = eventName
-        self.schedule = ScheduleJson(scheduleInfo: schedule)!
+        self.duration = eventDuration
+        self.id = eventId
+        self.name = eventName
     }
-
 }

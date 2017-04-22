@@ -11,15 +11,16 @@ import UIKit
 class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
     private var event: EventJson?
+    private var schedule: ScheduleJson?
     private var persistanceService: PersistanceService?
-    private var dailySchedules = [DailyScheduleViewController]()
-    
+    private var dateKeys: [String] = []
 
-    convenience init(persistanceService: PersistanceService?) {
+    convenience init(persistanceService: PersistanceService?, event: EventJson, schedule: ScheduleJson) {
         self.init()
+        self.event = event
         self.persistanceService = persistanceService
-        self.event = createEventFromJson()
-
+        self.schedule = schedule
+        self.dateKeys = createDateArray()
     }
     
     override func viewDidLoad() {
@@ -27,21 +28,29 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
         
         navigationBarViewSetUp()
         view.backgroundColor = .white
-        createDailySchedulesArray()
 
         self.delegate = self
         self.dataSource = self
         
-
-        if let viewController = dailySchedules.first {
-            setViewControllers([viewController], direction: .forward, animated: true, completion: nil)
-        }
-        
+        pageViewControllerSetUp()
     }
     
-    private func navigationBarViewSetUp () {
+    private func createDailySchedule(lectures: [LectureJson], date: String) -> DailyScheduleViewController {
+        return DailyScheduleViewController(lectures: lectures, date: date)
+    }
+    
+    private func pageViewControllerSetUp() {
         
-//        self.edgesForExtendedLayout = []
+        let schedule = self.schedule!
+        let viewController = createDailySchedule(
+            lectures: schedule.lecturesSchedule[dateKeys.first!]!,
+            date: dateKeys.first!)
+        
+        setViewControllers([viewController], direction: .forward, animated: true, completion: nil)
+    }
+    
+    private func navigationBarViewSetUp() {
+        
         self.automaticallyAdjustsScrollViewInsets = false
         self.navigationController!.navigationBar.isTranslucent = false
         self.navigationController!.navigationBar.backgroundColor = UIColor.white
@@ -51,84 +60,89 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
         
     }
     
-    @objc private func saveEvent() {
-        
-    }
-    
-    private func createDailySchedulesArray() {
-        
-        let schedule = self.event?.schedule
-        let sortedKeys = Array(schedule!.lecturesSchedule.keys).sorted(by: <)
 
-        for key in sortedKeys {
-            let dailySchedule = DailyScheduleViewController(lectures: (schedule?.lecturesSchedule[key])!, date: key)
-            self.dailySchedules.append(dailySchedule)
+    
+    @objc private func saveEvent() {
+        if let persistanceService = self.persistanceService {
+        persistanceService.createEvent(
+            withEventId: event!.id,
+            eventName: event!.name,
+            eventDuration: Int16(event!.duration),
+            schedule: schedule!)
+        { event in
+            print("event ID:", event.id)
         }
+        }
+
+    }
+        
+    private func createDateArray() -> [String] {
+        let schedule = self.schedule
+        return Array(schedule!.lecturesSchedule.keys).sorted(by: <)
     }
     
-    private func createEventFromJson() -> EventJson? {
-        
-        let jsonFileName = "untitled"
-        
-        if let path = Bundle.main.path(forResource: jsonFileName, ofType: "json") {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
-                do {
-                    
-                    let parsedData = try JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
-                    let event = EventJson(json: parsedData)
-                    return event
-                    
-                } catch let error {
-                    print(error.localizedDescription)
-                }
-            } catch let error {
-                print(error.localizedDescription)
-            }
-        } else {
-            print("Invalid filename/path.")
-        }
-        
-        return nil
-    }
-    
+//    private func createScheduleFromJson() -> ScheduleJson? {
+//        
+//        let jsonFileName = "schedule"
+//        
+//        if let path = Bundle.main.path(forResource: jsonFileName, ofType: "json") {
+//            do {
+//                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+//                do {
+//                    
+//                    let parsedData = try JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
+//                    let schedule = ScheduleJson(scheduleInfo: parsedData)
+//                    return schedule
+//                    
+//                } catch let error {
+//                    print(error.localizedDescription)
+//                }
+//            } catch let error {
+//                print(error.localizedDescription)
+//            }
+//        } else {
+//            print("Invalid filename/path.")
+//        }
+//        
+//        return nil
+//    }
+//    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        
         let controller = viewController as! DailyScheduleViewController
-        
-        let dailyScheduleViewControllerIndex = self.dailySchedules.index(of: controller)
-        
+        let dailyScheduleViewControllerIndex = self.dateKeys.index(of: controller.date)
         let previousViewControllerIndex = dailyScheduleViewControllerIndex! - 1
 
         guard previousViewControllerIndex>=0 else {
             return nil
         }
-        
-        guard dailySchedules.count >= previousViewControllerIndex else {
+        guard dateKeys.count >= previousViewControllerIndex else {
             return nil
         }
         
-        return dailySchedules[previousViewControllerIndex]
+        let schedule = self.schedule!
+        return createDailySchedule(
+            lectures: schedule.lecturesSchedule[dateKeys[previousViewControllerIndex]]!,
+            date: dateKeys[previousViewControllerIndex])
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
-        // todo: mairati viewModele na viewController kao u viewDidLoadu
-        
         let controller = viewController as! DailyScheduleViewController
-        
-        let dailyScheduleViewControllerIndex = self.dailySchedules.index(of: controller)
-        
+        let dailyScheduleViewControllerIndex = self.dateKeys.index(of: controller.date)
         let nextViewControllerIndex = dailyScheduleViewControllerIndex! + 1
         
-        guard nextViewControllerIndex < dailySchedules.count else {
+        guard nextViewControllerIndex < dateKeys.count else {
+            return nil
+        }
+        guard dateKeys.count >= nextViewControllerIndex else {
             return nil
         }
         
-        guard dailySchedules.count >= nextViewControllerIndex else {
-            return nil
-        }
-        
-        return dailySchedules[nextViewControllerIndex]
+        let schedule = self.schedule!
+        return createDailySchedule(
+            lectures: schedule.lecturesSchedule[dateKeys[nextViewControllerIndex]]!,
+            date: dateKeys[nextViewControllerIndex])
     }
     
 }

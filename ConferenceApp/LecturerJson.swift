@@ -9,8 +9,8 @@
 import Foundation
 
 class LecturerJson {
-    let lecturerName: String
-    let lecturerShortBio: String
+    let name: String
+    let shortBio: String
     
     init?(lecturerInfo: [String: String]) {
         
@@ -20,7 +20,7 @@ class LecturerJson {
                 return nil
         }
         
-        self.lecturerName = lecturerName
-        self.lecturerShortBio = lecturerShortBio
+        self.name = lecturerName
+        self.shortBio = lecturerShortBio
     }
 }
