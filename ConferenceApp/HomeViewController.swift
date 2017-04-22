@@ -122,4 +122,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         navigationController?.pushViewController(scheduleViewController, animated: true)
     }
 
+    @IBAction func profileTap(_ sender: UIButton) {
+        let profileService = ProfileService()
+        let profileViewController = ProfileViewController(profileService: profileService)
+        navigationController?.pushViewController(profileViewController, animated: true)
+    }
 }
