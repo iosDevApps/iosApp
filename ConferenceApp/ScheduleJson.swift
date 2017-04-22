@@ -16,6 +16,12 @@ class ScheduleJson {
         lecturesInizialization(schedule: scheduleInfo)
     }
     
+    func getDates() -> [String] {
+        return Array(lecturesSchedule.keys).sorted(by: <)
+    }
+    
+
+    
     func lecturesInizialization(schedule: [[String: Any]]) {
         var lectures = [LectureJson]()
         for dailySchedule in schedule {

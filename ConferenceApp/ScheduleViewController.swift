@@ -11,13 +11,15 @@ import UIKit
 class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
     private var event: EventJson?
+    private var schedule: ScheduleJson?
     private var persistanceService: PersistanceService?
     private var dateKeys: [String] = []
 
-    convenience init(persistanceService: PersistanceService?) {
+    convenience init(persistanceService: PersistanceService?, event: EventJson, schedule: ScheduleJson) {
         self.init()
+        self.event = event
         self.persistanceService = persistanceService
-        self.event = createEventFromJson()
+        self.schedule = schedule
         self.dateKeys = createDateArray()
     }
     
@@ -38,12 +40,16 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
     }
     
     private func pageViewControllerSetUp() {
-        let schedule = event!.schedule
-        let viewController = createDailySchedule(lectures: schedule.lecturesSchedule[dateKeys[0]]!, date: dateKeys[0])
+        
+        let schedule = self.schedule!
+        let viewController = createDailySchedule(
+            lectures: schedule.lecturesSchedule[dateKeys.first!]!,
+            date: dateKeys.first!)
+        
         setViewControllers([viewController], direction: .forward, animated: true, completion: nil)
     }
     
-    private func navigationBarViewSetUp () {
+    private func navigationBarViewSetUp() {
         
         self.automaticallyAdjustsScrollViewInsets = false
         self.navigationController!.navigationBar.isTranslucent = false
@@ -54,48 +60,53 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
         
     }
     
+
+    
     @objc private func saveEvent() {
-        persistanceService!.createEvent(
-            withEventId: event!.eventId,
-            eventName: event!.eventName,
-            eventDuration: Int16(event!.eventDuration))
+        if let persistanceService = self.persistanceService {
+        persistanceService.createEvent(
+            withEventId: event!.id,
+            eventName: event!.name,
+            eventDuration: Int16(event!.duration),
+            schedule: schedule!)
         { event in
-            print("event ID:", event.eventId)
+            print("event ID:", event.id)
         }
+        }
+
     }
-    
-    
+        
     private func createDateArray() -> [String] {
-        let schedule = self.event?.schedule
+        let schedule = self.schedule
         return Array(schedule!.lecturesSchedule.keys).sorted(by: <)
     }
     
-    private func createEventFromJson() -> EventJson? {
-        
-        let jsonFileName = "untitled"
-        
-        if let path = Bundle.main.path(forResource: jsonFileName, ofType: "json") {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
-                do {
-                    
-                    let parsedData = try JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
-                    let event = EventJson(json: parsedData)
-                    return event
-                    
-                } catch let error {
-                    print(error.localizedDescription)
-                }
-            } catch let error {
-                print(error.localizedDescription)
-            }
-        } else {
-            print("Invalid filename/path.")
-        }
-        
-        return nil
-    }
-    
+//    private func createScheduleFromJson() -> ScheduleJson? {
+//        
+//        let jsonFileName = "schedule"
+//        
+//        if let path = Bundle.main.path(forResource: jsonFileName, ofType: "json") {
+//            do {
+//                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+//                do {
+//                    
+//                    let parsedData = try JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
+//                    let schedule = ScheduleJson(scheduleInfo: parsedData)
+//                    return schedule
+//                    
+//                } catch let error {
+//                    print(error.localizedDescription)
+//                }
+//            } catch let error {
+//                print(error.localizedDescription)
+//            }
+//        } else {
+//            print("Invalid filename/path.")
+//        }
+//        
+//        return nil
+//    }
+//    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         let controller = viewController as! DailyScheduleViewController
@@ -109,7 +120,7 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
             return nil
         }
         
-        let schedule = event!.schedule 
+        let schedule = self.schedule!
         return createDailySchedule(
             lectures: schedule.lecturesSchedule[dateKeys[previousViewControllerIndex]]!,
             date: dateKeys[previousViewControllerIndex])
@@ -128,7 +139,7 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
             return nil
         }
         
-        let schedule = event!.schedule
+        let schedule = self.schedule!
         return createDailySchedule(
             lectures: schedule.lecturesSchedule[dateKeys[nextViewControllerIndex]]!,
             date: dateKeys[nextViewControllerIndex])

@@ -17,7 +17,7 @@
 		A162F82A1E95CD25006D1B36 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A162F8281E95CD25006D1B36 /* DataModel.xcdatamodeld */; };
 		A162F82C1E95CDCE006D1B36 /* ManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A162F82B1E95CDCE006D1B36 /* ManagedObject.swift */; };
 		A162F82E1E95CE08006D1B36 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A162F82D1E95CE08006D1B36 /* Event.swift */; };
-		A16B22A61E8430790074F1BB /* untitled.json in Resources */ = {isa = PBXBuildFile; fileRef = A16B22A31E8430790074F1BB /* untitled.json */; };
+		A16B22A61E8430790074F1BB /* schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = A16B22A31E8430790074F1BB /* schedule.json */; };
 		A16B22A71E8430790074F1BB /* LectureDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22A41E8430790074F1BB /* LectureDetailViewController.swift */; };
 		A16B22A81E8430790074F1BB /* LectureDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A16B22A51E8430790074F1BB /* LectureDetailViewController.xib */; };
 		A16B22AE1E8431310074F1BB /* ScheduleJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22AB1E8431310074F1BB /* ScheduleJson.swift */; };
@@ -28,6 +28,9 @@
 		A16B22BF1E8480A40074F1BB /* DailyScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22BD1E8480A40074F1BB /* DailyScheduleViewController.swift */; };
 		A16B22C41E849FB50074F1BB /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22C21E849FB50074F1BB /* EventsViewController.swift */; };
 		A1A7B06B1E9EDFEE00E122D7 /* event.json in Resources */ = {isa = PBXBuildFile; fileRef = A1A7B06A1E9EDFEE00E122D7 /* event.json */; };
+		A1A7B06D1E9EF90600E122D7 /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7B06C1E9EF90600E122D7 /* Lecture.swift */; };
+		A1A7B06F1E9EFA6B00E122D7 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7B06E1E9EFA6B00E122D7 /* Day.swift */; };
+		A1A7B0711E9EFB3200E122D7 /* Lecturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7B0701E9EFB3200E122D7 /* Lecturer.swift */; };
 		A251999BD5BDC70EF1F12717 /* Pods_ConferenceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F824CCFC96D8621FC6CB183 /* Pods_ConferenceApp.framework */; };
 		D215426A1E80110200997478 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21542691E80110200997478 /* LoginViewModel.swift */; };
 		D215426F1E80153E00997478 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D215426E1E80153E00997478 /* LoginService.swift */; };
@@ -81,7 +84,7 @@
 		A162F8291E95CD25006D1B36 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		A162F82B1E95CDCE006D1B36 /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObject.swift; sourceTree = "<group>"; };
 		A162F82D1E95CE08006D1B36 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		A16B22A31E8430790074F1BB /* untitled.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = untitled.json; sourceTree = "<group>"; };
+		A16B22A31E8430790074F1BB /* schedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schedule.json; sourceTree = "<group>"; };
 		A16B22A41E8430790074F1BB /* LectureDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureDetailViewController.swift; sourceTree = "<group>"; };
 		A16B22A51E8430790074F1BB /* LectureDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LectureDetailViewController.xib; sourceTree = "<group>"; };
 		A16B22AB1E8431310074F1BB /* ScheduleJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleJson.swift; sourceTree = "<group>"; };
@@ -92,6 +95,9 @@
 		A16B22BD1E8480A40074F1BB /* DailyScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyScheduleViewController.swift; sourceTree = "<group>"; };
 		A16B22C21E849FB50074F1BB /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		A1A7B06A1E9EDFEE00E122D7 /* event.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = event.json; sourceTree = "<group>"; };
+		A1A7B06C1E9EF90600E122D7 /* Lecture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
+		A1A7B06E1E9EFA6B00E122D7 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		A1A7B0701E9EFB3200E122D7 /* Lecturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lecturer.swift; sourceTree = "<group>"; };
 		D21542691E80110200997478 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		D215426E1E80153E00997478 /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		D21542701E80159600997478 /* PersistService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistService.swift; sourceTree = "<group>"; };
@@ -171,8 +177,11 @@
 		A12C957D1E9C2D5500B015CB /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				A162F82B1E95CDCE006D1B36 /* ManagedObject.swift */,
+				A12C95751E9A4F1C00B015CB /* PersistanceService.swift */,
 				A12C957E1E9C2D8500B015CB /* NSManagedObjectContext + Utilities.swift */,
 				A12C95791E9C06F900B015CB /* TableViewDataSource.swift */,
+				A12C95771E9BA6D700B015CB /* Managed.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -207,10 +216,7 @@
 				A12C957D1E9C2D5500B015CB /* Utilities */,
 				A159FF751E9DA6F10061C82A /* ModelJson */,
 				A162F8281E95CD25006D1B36 /* DataModel.xcdatamodeld */,
-				A162F82B1E95CDCE006D1B36 /* ManagedObject.swift */,
-				A162F82D1E95CE08006D1B36 /* Event.swift */,
-				A12C95751E9A4F1C00B015CB /* PersistanceService.swift */,
-				A12C95771E9BA6D700B015CB /* Managed.swift */,
+				A16CF1F31E9FA177005EE73A /* ManagedObjects */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -222,6 +228,17 @@
 				A12C957B1E9C166800B015CB /* EventTableViewCell.swift */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		A16CF1F31E9FA177005EE73A /* ManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				A162F82D1E95CE08006D1B36 /* Event.swift */,
+				A1A7B06E1E9EFA6B00E122D7 /* Day.swift */,
+				A1A7B06C1E9EF90600E122D7 /* Lecture.swift */,
+				A1A7B0701E9EFB3200E122D7 /* Lecturer.swift */,
+			);
+			name = ManagedObjects;
 			sourceTree = "<group>";
 		};
 		D215426D1E80153200997478 /* Services */ = {
@@ -259,7 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				A16B22AA1E8431220074F1BB /* DataModel */,
-				A16B22A31E8430790074F1BB /* untitled.json */,
+				A16B22A31E8430790074F1BB /* schedule.json */,
 				A1A7B06A1E9EDFEE00E122D7 /* event.json */,
 				D215426D1E80153200997478 /* Services */,
 				D2B669E51E7FC63B00C61ADB /* UserInterface */,
@@ -448,7 +465,7 @@
 				D2B669E41E7FC63400C61ADB /* LoginViewController.xib in Resources */,
 				D2B669BC1E7FBF3200C61ADB /* LaunchScreen.storyboard in Resources */,
 				A16B22A81E8430790074F1BB /* LectureDetailViewController.xib in Resources */,
-				A16B22A61E8430790074F1BB /* untitled.json in Resources */,
+				A16B22A61E8430790074F1BB /* schedule.json in Resources */,
 				A1A7B06B1E9EDFEE00E122D7 /* event.json in Resources */,
 				D2B669EE1E7FC67D00C61ADB /* HomeViewController.xib in Resources */,
 				D2B669F21E7FC69000C61ADB /* RegistrationViewController.xib in Resources */,
@@ -620,14 +637,17 @@
 				A16B22BF1E8480A40074F1BB /* DailyScheduleViewController.swift in Sources */,
 				D2B669ED1E7FC67D00C61ADB /* HomeViewController.swift in Sources */,
 				A12C957F1E9C2D8500B015CB /* NSManagedObjectContext + Utilities.swift in Sources */,
+				A1A7B06F1E9EFA6B00E122D7 /* Day.swift in Sources */,
 				D21542711E80159600997478 /* PersistService.swift in Sources */,
 				A12C95781E9BA6D700B015CB /* Managed.swift in Sources */,
 				D2B669E31E7FC63400C61ADB /* LoginViewController.swift in Sources */,
 				D215426A1E80110200997478 /* LoginViewModel.swift in Sources */,
 				A159FF741E9D86B90061C82A /* EventJson.swift in Sources */,
+				A1A7B06D1E9EF90600E122D7 /* Lecture.swift in Sources */,
 				A16B22B71E8431490074F1BB /* DailyScheduleViewCell.swift in Sources */,
 				D21542731E801BFD00997478 /* LoginResult.swift in Sources */,
 				A162F82E1E95CE08006D1B36 /* Event.swift in Sources */,
+				A1A7B0711E9EFB3200E122D7 /* Lecturer.swift in Sources */,
 				A12C95761E9A4F1C00B015CB /* PersistanceService.swift in Sources */,
 				A162F82C1E95CDCE006D1B36 /* ManagedObject.swift in Sources */,
 				A12C957A1E9C06F900B015CB /* TableViewDataSource.swift in Sources */,

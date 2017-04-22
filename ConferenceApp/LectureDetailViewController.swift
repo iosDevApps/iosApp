@@ -28,10 +28,10 @@ class LectureDetailViewController: UIViewController {
     }
     
     init(lectureInfo: LectureJson) {
-        self.lecturerBio = lectureInfo.lecturer.lecturerName
-        self.lectureTitle = lectureInfo.lectureTitle
-        self.lecturerName = lectureInfo.lecturer.lecturerShortBio
-        self.lectureDescritption = lectureInfo.lectureShortDescription
+        self.lecturerBio = lectureInfo.lecturer.name
+        self.lectureTitle = lectureInfo.title
+        self.lecturerName = lectureInfo.lecturer.shortBio
+        self.lectureDescritption = lectureInfo.shortDescription
         
         super.init(nibName: nil, bundle: nil)
 

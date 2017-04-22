@@ -1,9 +1,4 @@
-{
-	"data":{
-		"days":3,
-        "event_id":"1",
-        "eventName":"Proba",
-		"schedule":[
+[
 					{
 						"day":"23.03.2017",
 						"lectures":[
@@ -111,5 +106,3 @@
 						]
 					}
 			]
-    }
-}

@@ -25,6 +25,10 @@ class EventTableViewCell: UITableViewCell {
 
 extension EventTableViewCell {
     func configure(for event: Event) {
-        self.textLabel?.text = event.eventName
+        self.textLabel?.text = event.name
+    }
+    
+    func configure(for event: EventJson) {
+        self.textLabel?.text = event.name
     }
 }

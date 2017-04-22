@@ -18,7 +18,6 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setClickListeners()
     }
 
@@ -33,8 +32,12 @@ class LoginViewController: UIViewController {
     }
     
     func openHomeViewController(){
+        
+        let persistanceService = PersistanceService()
+        let eventsViewController = EventsViewController(persistanceService: persistanceService)
+
         let vc = HomeViewController();
-        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(eventsViewController, animated: true)
     }
 
 }
