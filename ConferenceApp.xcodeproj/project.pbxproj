@@ -18,6 +18,7 @@
 		A12C957A1E9C06F900B015CB /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C95791E9C06F900B015CB /* TableViewDataSource.swift */; };
 		A12C957C1E9C166800B015CB /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C957B1E9C166800B015CB /* EventTableViewCell.swift */; };
 		A12C957F1E9C2D8500B015CB /* NSManagedObjectContext + Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C957E1E9C2D8500B015CB /* NSManagedObjectContext + Utilities.swift */; };
+		A14FEE4C1EABE8DE00F34F3B /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14FEE4B1EABE8DE00F34F3B /* EventService.swift */; };
 		A159FF741E9D86B90061C82A /* EventJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = A159FF731E9D86B90061C82A /* EventJson.swift */; };
 		A162F82A1E95CD25006D1B36 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A162F8281E95CD25006D1B36 /* DataModel.xcdatamodeld */; };
 		A162F82C1E95CDCE006D1B36 /* ManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A162F82B1E95CDCE006D1B36 /* ManagedObject.swift */; };
@@ -94,6 +95,7 @@
 		A12C95791E9C06F900B015CB /* TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		A12C957B1E9C166800B015CB /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		A12C957E1E9C2D8500B015CB /* NSManagedObjectContext + Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext + Utilities.swift"; sourceTree = "<group>"; };
+		A14FEE4B1EABE8DE00F34F3B /* EventService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
 		A159FF731E9D86B90061C82A /* EventJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventJson.swift; sourceTree = "<group>"; };
 		A162F8291E95CD25006D1B36 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		A162F82B1E95CDCE006D1B36 /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObject.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 				84795E2B1EA1FD2500BCB2D0 /* ProfileService.swift */,
 				84795E2F1EA1FF3600BCB2D0 /* JsonService.swift */,
 				D215428A1EAA15FB00997478 /* BaseService.swift */,
+				A14FEE4B1EABE8DE00F34F3B /* EventService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -691,6 +694,7 @@
 				A16B22BF1E8480A40074F1BB /* DailyScheduleViewController.swift in Sources */,
 				D2B669ED1E7FC67D00C61ADB /* HomeViewController.swift in Sources */,
 				A12C957F1E9C2D8500B015CB /* NSManagedObjectContext + Utilities.swift in Sources */,
+				A14FEE4C1EABE8DE00F34F3B /* EventService.swift in Sources */,
 				84795E2E1EA1FDE700BCB2D0 /* UserJson.swift in Sources */,
 				A1A7B06F1E9EFA6B00E122D7 /* Day.swift in Sources */,
 				D21542711E80159600997478 /* PersistService.swift in Sources */,

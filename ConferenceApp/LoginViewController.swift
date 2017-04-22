@@ -116,10 +116,10 @@ class LoginViewController: UIViewController {
     func openHomeViewController(){
         
         let persistanceService = PersistanceService()
-        let eventsViewController = EventsViewController(persistanceService: persistanceService)
+        let eventsViewController = FavoriteEventsViewController(persistanceService: persistanceService)
 
         let vc = HomeViewController();
-        navigationController?.pushViewController(eventsViewController, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     

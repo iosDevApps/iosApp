@@ -10,10 +10,10 @@ import UIKit
 import CoreData
 import PureLayout
 
-class EventsViewController: UIViewController {
+class FavoriteEventsViewController: UIViewController {
     
     fileprivate var persistanceService: PersistanceService? = nil
-    fileprivate var dataSource: TableViewDataSource<EventsViewController>?
+    fileprivate var dataSource: TableViewDataSource<FavoriteEventsViewController>?
     fileprivate var event: EventJson?
 
     convenience init(persistanceService: PersistanceService?) {
@@ -83,7 +83,7 @@ class EventsViewController: UIViewController {
     
 }
 
-extension EventsViewController: TableViewDataSourceDelegate {
+extension FavoriteEventsViewController: TableViewDataSourceDelegate {
     func configure(_ cell: EventTableViewCell, for object: Event) {
         cell.configure(for: object)
     }
@@ -93,7 +93,7 @@ extension EventsViewController: TableViewDataSourceDelegate {
     }
 }
 
-extension EventsViewController: UITableViewDelegate {
+extension FavoriteEventsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)

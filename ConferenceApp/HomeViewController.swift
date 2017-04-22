@@ -18,7 +18,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpTable()
+//        setUpTable()
     }
 
     override func didReceiveMemoryWarning() {
