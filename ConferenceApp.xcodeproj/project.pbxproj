@@ -18,6 +18,9 @@
 		A12C957A1E9C06F900B015CB /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C95791E9C06F900B015CB /* TableViewDataSource.swift */; };
 		A12C957C1E9C166800B015CB /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C957B1E9C166800B015CB /* EventTableViewCell.swift */; };
 		A12C957F1E9C2D8500B015CB /* NSManagedObjectContext + Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C957E1E9C2D8500B015CB /* NSManagedObjectContext + Utilities.swift */; };
+		A14FEE4C1EABE8DE00F34F3B /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14FEE4B1EABE8DE00F34F3B /* EventService.swift */; };
+		A14FEE4E1EABF36400F34F3B /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14FEE4D1EABF36400F34F3B /* EventsViewController.swift */; };
+		A14FEE541EAC1E1600F34F3B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14FEE531EAC1E1600F34F3B /* HomeViewController.swift */; };
 		A159FF741E9D86B90061C82A /* EventJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = A159FF731E9D86B90061C82A /* EventJson.swift */; };
 		A162F82A1E95CD25006D1B36 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A162F8281E95CD25006D1B36 /* DataModel.xcdatamodeld */; };
 		A162F82C1E95CDCE006D1B36 /* ManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A162F82B1E95CDCE006D1B36 /* ManagedObject.swift */; };
@@ -31,7 +34,7 @@
 		A16B22B71E8431490074F1BB /* DailyScheduleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22B31E8431490074F1BB /* DailyScheduleViewCell.swift */; };
 		A16B22BB1E84365A0074F1BB /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22B91E84365A0074F1BB /* ScheduleViewController.swift */; };
 		A16B22BF1E8480A40074F1BB /* DailyScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22BD1E8480A40074F1BB /* DailyScheduleViewController.swift */; };
-		A16B22C41E849FB50074F1BB /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22C21E849FB50074F1BB /* EventsViewController.swift */; };
+		A16B22C41E849FB50074F1BB /* FavoriteEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B22C21E849FB50074F1BB /* FavoriteEventsViewController.swift */; };
 		A1A7B06B1E9EDFEE00E122D7 /* event.json in Resources */ = {isa = PBXBuildFile; fileRef = A1A7B06A1E9EDFEE00E122D7 /* event.json */; };
 		A1A7B06D1E9EF90600E122D7 /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7B06C1E9EF90600E122D7 /* Lecture.swift */; };
 		A1A7B06F1E9EFA6B00E122D7 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7B06E1E9EFA6B00E122D7 /* Day.swift */; };
@@ -52,8 +55,6 @@
 		D2B669D21E7FBF3300C61ADB /* ConferenceAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B669D11E7FBF3300C61ADB /* ConferenceAppUITests.swift */; };
 		D2B669E31E7FC63400C61ADB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B669E11E7FC63400C61ADB /* LoginViewController.swift */; };
 		D2B669E41E7FC63400C61ADB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2B669E21E7FC63400C61ADB /* LoginViewController.xib */; };
-		D2B669ED1E7FC67D00C61ADB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B669EB1E7FC67D00C61ADB /* HomeViewController.swift */; };
-		D2B669EE1E7FC67D00C61ADB /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2B669EC1E7FC67D00C61ADB /* HomeViewController.xib */; };
 		D2B669F11E7FC69000C61ADB /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B669EF1E7FC69000C61ADB /* RegistrationViewController.swift */; };
 		D2B669F21E7FC69000C61ADB /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2B669F01E7FC69000C61ADB /* RegistrationViewController.xib */; };
 		F1EB89016D592A945B7F653C /* Pods_ConferenceAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373291A751E829204141C4C4 /* Pods_ConferenceAppTests.framework */; };
@@ -94,6 +95,9 @@
 		A12C95791E9C06F900B015CB /* TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		A12C957B1E9C166800B015CB /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		A12C957E1E9C2D8500B015CB /* NSManagedObjectContext + Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext + Utilities.swift"; sourceTree = "<group>"; };
+		A14FEE4B1EABE8DE00F34F3B /* EventService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
+		A14FEE4D1EABF36400F34F3B /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		A14FEE531EAC1E1600F34F3B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A159FF731E9D86B90061C82A /* EventJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventJson.swift; sourceTree = "<group>"; };
 		A162F8291E95CD25006D1B36 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		A162F82B1E95CDCE006D1B36 /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObject.swift; sourceTree = "<group>"; };
@@ -107,7 +111,7 @@
 		A16B22B31E8431490074F1BB /* DailyScheduleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyScheduleViewCell.swift; sourceTree = "<group>"; };
 		A16B22B91E84365A0074F1BB /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		A16B22BD1E8480A40074F1BB /* DailyScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyScheduleViewController.swift; sourceTree = "<group>"; };
-		A16B22C21E849FB50074F1BB /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		A16B22C21E849FB50074F1BB /* FavoriteEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteEventsViewController.swift; sourceTree = "<group>"; };
 		A1A7B06A1E9EDFEE00E122D7 /* event.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = event.json; sourceTree = "<group>"; };
 		A1A7B06C1E9EF90600E122D7 /* Lecture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
 		A1A7B06E1E9EFA6B00E122D7 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
@@ -133,8 +137,6 @@
 		D2B669D31E7FBF3300C61ADB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2B669E11E7FC63400C61ADB /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D2B669E21E7FC63400C61ADB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		D2B669EB1E7FC67D00C61ADB /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		D2B669EC1E7FC67D00C61ADB /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		D2B669EF1E7FC69000C61ADB /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		D2B669F01E7FC69000C61ADB /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
 		D4A36F0F63BE34DEAE8DD1EF /* Pods_ConferenceAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConferenceAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,11 +231,12 @@
 			isa = PBXGroup;
 			children = (
 				A16B22C11E8480E60074F1BB /* Cell */,
-				A16B22C21E849FB50074F1BB /* EventsViewController.swift */,
+				A16B22C21E849FB50074F1BB /* FavoriteEventsViewController.swift */,
 				A16B22A41E8430790074F1BB /* LectureDetailViewController.swift */,
 				A16B22A51E8430790074F1BB /* LectureDetailViewController.xib */,
 				A16B22B91E84365A0074F1BB /* ScheduleViewController.swift */,
 				A16B22BD1E8480A40074F1BB /* DailyScheduleViewController.swift */,
+				A14FEE4D1EABF36400F34F3B /* EventsViewController.swift */,
 			);
 			name = Schedule;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				84795E2B1EA1FD2500BCB2D0 /* ProfileService.swift */,
 				84795E2F1EA1FF3600BCB2D0 /* JsonService.swift */,
 				D215428A1EAA15FB00997478 /* BaseService.swift */,
+				A14FEE4B1EABE8DE00F34F3B /* EventService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -391,8 +395,7 @@
 		D2B669E81E7FC65D00C61ADB /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				D2B669EB1E7FC67D00C61ADB /* HomeViewController.swift */,
-				D2B669EC1E7FC67D00C61ADB /* HomeViewController.xib */,
+				A14FEE531EAC1E1600F34F3B /* HomeViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -519,7 +522,6 @@
 				A16B22A81E8430790074F1BB /* LectureDetailViewController.xib in Resources */,
 				A16B22A61E8430790074F1BB /* schedule.json in Resources */,
 				A1A7B06B1E9EDFEE00E122D7 /* event.json in Resources */,
-				D2B669EE1E7FC67D00C61ADB /* HomeViewController.xib in Resources */,
 				D2B669F21E7FC69000C61ADB /* RegistrationViewController.xib in Resources */,
 				D2B669B91E7FBF3200C61ADB /* Assets.xcassets in Resources */,
 			);
@@ -685,12 +687,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A12C957C1E9C166800B015CB /* EventTableViewCell.swift in Sources */,
+				A14FEE4E1EABF36400F34F3B /* EventsViewController.swift in Sources */,
 				84795E301EA1FF3600BCB2D0 /* JsonService.swift in Sources */,
 				A16B22BB1E84365A0074F1BB /* ScheduleViewController.swift in Sources */,
 				84795E2C1EA1FD2500BCB2D0 /* ProfileService.swift in Sources */,
 				A16B22BF1E8480A40074F1BB /* DailyScheduleViewController.swift in Sources */,
-				D2B669ED1E7FC67D00C61ADB /* HomeViewController.swift in Sources */,
 				A12C957F1E9C2D8500B015CB /* NSManagedObjectContext + Utilities.swift in Sources */,
+				A14FEE4C1EABE8DE00F34F3B /* EventService.swift in Sources */,
 				84795E2E1EA1FDE700BCB2D0 /* UserJson.swift in Sources */,
 				A1A7B06F1E9EFA6B00E122D7 /* Day.swift in Sources */,
 				D21542711E80159600997478 /* PersistService.swift in Sources */,
@@ -704,6 +707,7 @@
 				A1A7B06D1E9EF90600E122D7 /* Lecture.swift in Sources */,
 				A16B22B71E8431490074F1BB /* DailyScheduleViewCell.swift in Sources */,
 				D21542731E801BFD00997478 /* LoginResult.swift in Sources */,
+				A14FEE541EAC1E1600F34F3B /* HomeViewController.swift in Sources */,
 				A162F82E1E95CE08006D1B36 /* Event.swift in Sources */,
 				A1A7B0711E9EFB3200E122D7 /* Lecturer.swift in Sources */,
 				A12C95761E9A4F1C00B015CB /* PersistanceService.swift in Sources */,
@@ -719,7 +723,7 @@
 				A16B22AE1E8431310074F1BB /* ScheduleJson.swift in Sources */,
 				A16B22A71E8430790074F1BB /* LectureDetailViewController.swift in Sources */,
 				A16B22B01E8431310074F1BB /* LecturerJson.swift in Sources */,
-				A16B22C41E849FB50074F1BB /* EventsViewController.swift in Sources */,
+				A16B22C41E849FB50074F1BB /* FavoriteEventsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
