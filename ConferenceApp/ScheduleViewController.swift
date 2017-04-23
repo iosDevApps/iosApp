@@ -21,6 +21,7 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
         self.persistanceService = persistanceService
         self.schedule = schedule
         self.dateKeys = createDateArray()
+
     }
     
     override func viewDidLoad() {
