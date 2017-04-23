@@ -14,36 +14,42 @@ class HomeViewController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
 
         super.viewDidLoad()
-        
-        //Assign self for delegate for that ViewController can respond to UITabBarControllerDelegate methods
+
         self.delegate = self
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.viewControllers = createViewControllers()
+        self.navigationItem.title = self.selectedViewController!.title        
+    }
+    
+    private func createViewControllers() -> [UIViewController] {
         let profileService = ProfileService()
         let persistanceService = PersistanceService()
         
         let favoriteEventsViewController = FavoriteEventsViewController(persistanceService: persistanceService)
         favoriteEventsViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+        favoriteEventsViewController.title = "Favorites"
         
         let eventsViewController = EventsViewController()
         eventsViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .mostViewed, tag: 2)
+        eventsViewController.title = "Upcoming Events"
         
         let profileViewController = ProfileViewController(profileService: profileService)
         profileViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 3)
+        profileViewController.title = "Profile"
         
         let viewControllers = [favoriteEventsViewController, eventsViewController, profileViewController]
         
-        self.viewControllers = viewControllers
+        return viewControllers
     }
     
-    // UITabBarControllerDelegate method
-//    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-//        print("Selected \(viewController.title!)")
-//    }
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        self.navigationItem.title = viewController.title
+    }
+    
 }
 
 
