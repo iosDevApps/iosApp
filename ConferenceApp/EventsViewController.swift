@@ -7,49 +7,63 @@
 //
 
 import UIKit
+import PureLayout
 
 fileprivate let reusableIdentifier = String(describing: EventTableViewCell.self)
 
 class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    private var events: [EventJson]
-    
+    let tableView = UITableView()
+
+    private var events = [EventJson]()
+    private var eventService: EventService?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        eventService?.getEvents(handler: loadEvents)
         setUpTable()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    func loadEvents(events: [EventJson]) {
+        DispatchQueue.main.async {
+            self.events = events
+            self.tableView.reloadData()
+        }
+
     }
     
-    init() {
-        
-        self.events = EventsViewController.createEventsFromJson()
-        super.init(nibName: nil, bundle: nil)
-        
+    convenience init(eventService: EventService) {
+        self.init()
+        self.eventService = eventService
+//        self.automaticallyAdjustsScrollViewInsets = false
+
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+//    init() {
+//        
+//        self.events = EventsViewController.createEventsFromJson()
+//        super.init(nibName: nil, bundle: nil)
+//        
+//    }
+    
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
     
     private func setUpTable() {
         
-        self.edgesForExtendedLayout = []
-        
-        let tableView = UITableView()
+
         tableView.register(EventTableViewCell.self, forCellReuseIdentifier: reusableIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView()
-        
+
         self.view.addSubview(tableView)
         tableView.autoPinEdgesToSuperviewEdges()
+
     }
     
     static private func createEventsFromJson() -> [EventJson] {

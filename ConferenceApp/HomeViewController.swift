@@ -14,6 +14,7 @@ class HomeViewController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
 
         super.viewDidLoad()
+//        self.automaticallyAdjustsScrollViewInsets = false
 
         self.delegate = self
         
@@ -28,12 +29,13 @@ class HomeViewController: UITabBarController, UITabBarControllerDelegate {
     private func createViewControllers() -> [UIViewController] {
         let profileService = ProfileService()
         let persistanceService = PersistanceService()
+        let eventService = EventService()
         
         let favoriteEventsViewController = FavoriteEventsViewController(persistanceService: persistanceService)
         favoriteEventsViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         favoriteEventsViewController.title = "Favorites"
         
-        let eventsViewController = EventsViewController()
+        let eventsViewController = EventsViewController(eventService: eventService)
         eventsViewController.tabBarItem = UITabBarItem(title: "Events", image: nil, tag: 2)
         eventsViewController.title = "Upcoming Events"
         

@@ -11,7 +11,7 @@ import Foundation
 class EventService {
     private var handler: ([EventJson]) -> Void = { events in }
     
-    func getEvent(handler: @escaping ([EventJson]) -> Void) {
+    func getEvents(handler: @escaping ([EventJson]) -> Void) {
         self.handler = handler
         let jsonService = JsonService()
         jsonService.get(url: "http://138.68.104.189/events", handler: handleData)
