@@ -8,28 +8,24 @@
 
 import Foundation
 
-class ProfileService {
-    private var handler: (UserJson) -> Void = { user in }
+class ProfileService: BaseService {
+    static let instance = ProfileService()
     
-    func getUser(handler: @escaping (UserJson) -> Void) {
-        self.handler = handler
-        let jsonService = JsonService()
-        jsonService.get(url: "http://138.68.104.189/users", handler: handleData)
+    private var user: UserJson?
+    
+    override init() {
+        super.init()
     }
     
-    private func handleData(data: Data) {
-        do {
-            let parsedData = try JSONSerialization.jsonObject(with: data, options: []) as! [[String: Any]]
-            let json = parsedData[0]
-            
-            guard let user = UserJson(json: json) else {
-                return
-            }
-            
-            handler(user)
-        } catch {
-            print(error)
+    public static func setUser(user: UserJson) {
+        instance.user = user
+    }
+    
+    public static func getUser() -> UserJson? {
+        if let user = instance.user {
+            return user
         }
+        
+        return nil
     }
-    
 }

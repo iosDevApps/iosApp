@@ -26,12 +26,12 @@ class RegistrationService : BaseService{
                 request.addValue("application/json", forHTTPHeaderField: "Content-Type")
                 request.addValue("application/json", forHTTPHeaderField: "Accept")
                 
-                let parameters = ["username": email,
-                                  "password": password,
-                                  "first_name": firstName,
-                                  "last_name": lastName,
-                                  "age" : age,
-                                  "gender" : gendre] as Dictionary<String, AnyObject>
+                let parameters = ["username": email as AnyObject,
+                                  "password": password as AnyObject,
+                                  "first_name": firstName as AnyObject,
+                                  "last_name": lastName as AnyObject,
+                                  "age" : age as AnyObject,
+                                  "gender" : gendre as AnyObject] as Dictionary<String, AnyObject>
                 
                 do {
                     request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)

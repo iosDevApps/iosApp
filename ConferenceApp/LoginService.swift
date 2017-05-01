@@ -45,13 +45,18 @@ class LoginService: BaseService {
                     do {
                         let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String:Any]
                     
-                            let user = UserJson(json: json)
-                            print("user ", user ?? "")
+                        guard let user = UserJson(json: json) else {
+                            print("user loading failed")
+                            return
+                        }
+                        
+                        ProfileService.setUser(user: user)
+                        print("user ", user)
 
-                            observer.onNext(true)
-                            observer.onCompleted()
+                        observer.onNext(true)
+                        observer.onCompleted()
                    
-                    }catch let error as NSError{
+                    } catch let error as NSError{
                         print(error)
                         observer.onNext(false)
                         observer.onCompleted()

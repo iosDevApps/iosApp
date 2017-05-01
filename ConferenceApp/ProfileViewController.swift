@@ -25,19 +25,21 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        profileService?.getUser(handler: loadUser)
+        loadUser()
     }
     
-    func loadUser(user: UserJson) {
-        DispatchQueue.main.async {
-            print(user.firstName)
-            print(user.lastName)
-            print(user.gender)
-            print(user.age)
-            self.userName.text = user.firstName + " " + user.lastName
-            self.userGender.text = user.gender == "M" ? "Male" : "Female"
-            self.userAge.text = String(user.age)
-            //userImage.image = user.image
+    func loadUser() {
+        if let user = ProfileService.getUser() {
+            DispatchQueue.main.async {
+                print(user.firstName)
+                print(user.lastName)
+                print(user.gender)
+                print(user.age)
+                self.userName.text = user.firstName + " " + user.lastName
+                self.userGender.text = user.gender == "M" ? "Male" : "Female"
+                self.userAge.text = String(user.age)
+                //userImage.image = user.image
+            }
         }
     }
 }
