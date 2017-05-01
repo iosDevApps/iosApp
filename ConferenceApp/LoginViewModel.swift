@@ -16,6 +16,8 @@ class LoginViewModel {
     let email: Variable<String>
     let password: Variable<String>
     let loginTap: PublishSubject<Void>
+    let registerTap: PublishSubject<Void>
+
     
     // Outputs
     let isLoginButtonEnabled: Driver<Bool>
@@ -39,6 +41,7 @@ class LoginViewModel {
         let email = Variable("")
         let password = Variable("")
         let loginTap = PublishSubject<Void>()
+        let registerTap = PublishSubject<Void>()
         
         //auto populate
         if let savedEmail = persistService.email {
@@ -49,7 +52,9 @@ class LoginViewModel {
             print("Load saved password: ", savedPassword)
             password.value = savedPassword
         }
-
+        
+    
+      
         
         let loginResult = loginTap
             .flatMapLatest { () -> Observable<LoginResult> in
@@ -100,6 +105,7 @@ class LoginViewModel {
         self.email = email
         self.password = password
         self.loginTap = loginTap
+        self.registerTap = registerTap
     }
     
     func checkIfOldUser(completion: @escaping (Bool) -> ()){

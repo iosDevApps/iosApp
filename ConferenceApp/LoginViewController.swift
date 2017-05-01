@@ -37,6 +37,7 @@ class LoginViewController: UIViewController {
         
         
         /* too slow :(
+         when user gets into app check
         DispatchQueue.global().async{
             DispatchQueue.main.async(){
             
@@ -50,6 +51,9 @@ class LoginViewController: UIViewController {
             }
         }
      */
+        
+        
+        registerBtn.addTarget(self, action: #selector(openRegistrationViewController), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,6 +71,8 @@ class LoginViewController: UIViewController {
         (passwordTextField.rx.textInput <-> viewModel.password).addDisposableTo(disposeBag)
 
         loginBtn.rx.tap.bindTo(viewModel.loginTap).addDisposableTo(disposeBag)
+        
+        registerBtn.rx.tap.bindTo(viewModel.registerTap).addDisposableTo(disposeBag)
     }
     
     func bindOutputs(){
@@ -84,7 +90,6 @@ class LoginViewController: UIViewController {
             .map { $0.isEmpty ?  UIColor.white : UIColor.red }
             .drive(onNext: { self.passwordTextField.backgroundColor = $0 })
             .addDisposableTo(disposeBag)
-
         
         //username
         viewModel.errorMessage
@@ -106,6 +111,8 @@ class LoginViewController: UIViewController {
             .drive(passwordTextField.rx.isEnabled)
             .addDisposableTo(disposeBag)
         
+      
+        
         viewModel.loginSuccess
             .drive(onNext:{
                 print("Login success")
@@ -116,6 +123,12 @@ class LoginViewController: UIViewController {
     func openHomeViewController(){
         let vc = HomeViewController();
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func openRegistrationViewController(){
+        let vc = RegistrationViewController();
+        navigationController?.pushViewController(vc, animated: true)
+        
     }
 
     

@@ -104,5 +104,11 @@ class LoginService: BaseService {
         }
     }
 
+    
+    func logout(persistService: PersistService) -> Bool {
+        persistService.email = ""
+        persistService.password = ""
+        return true
+    }
 
 }
