@@ -10,6 +10,12 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+public enum Gendre:String {
+    case MAN = "Man"
+    case WOMAN = "Woman"
+    case Unknown = "Unknownd"
+}
+
 class RegistrationViewController: UIViewController {
    
     @IBOutlet weak var usernameValue: UITextField!
@@ -52,14 +58,15 @@ class RegistrationViewController: UIViewController {
         
         let gendre = gendreChooser.rx.value
         gendre.asObservable().map{ value in
-            if(value==0){
-                return "Man"
-            }else if(value==1){
-                return "Woman"
-            }else{
-                return "Unknown"
+            switch(value){
+                case 0:
+                    return Gendre.MAN.rawValue
+                case 1:
+                    return Gendre.WOMAN.rawValue
+                default:
+                    return Gendre.Unknown.rawValue
             }
-            }.bindTo(viewModel.gendre).addDisposableTo(disposeBag)
+        }.bindTo(viewModel.gendre).addDisposableTo(disposeBag)
         
         
       

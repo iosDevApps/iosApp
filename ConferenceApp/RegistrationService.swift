@@ -17,7 +17,6 @@ class RegistrationService : BaseService{
         
         print("register")
         
-        
         return Observable.create({ (observer) -> Disposable in
         
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
