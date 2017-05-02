@@ -51,7 +51,6 @@
 		D27815D21EB6BD5700F0BFBC /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27815D11EB6BD5700F0BFBC /* RegistrationViewModel.swift */; };
 		D27815D41EB6BDAB00F0BFBC /* RegistrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27815D31EB6BDAB00F0BFBC /* RegistrationService.swift */; };
 		D2B669B21E7FBF3200C61ADB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B669B11E7FBF3200C61ADB /* AppDelegate.swift */; };
-		D2B669B91E7FBF3200C61ADB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B669B81E7FBF3200C61ADB /* Assets.xcassets */; };
 		D2B669BC1E7FBF3200C61ADB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B669BA1E7FBF3200C61ADB /* LaunchScreen.storyboard */; };
 		D2B669C71E7FBF3300C61ADB /* ConferenceAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B669C61E7FBF3300C61ADB /* ConferenceAppTests.swift */; };
 		D2B669D21E7FBF3300C61ADB /* ConferenceAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B669D11E7FBF3300C61ADB /* ConferenceAppUITests.swift */; };
@@ -59,6 +58,7 @@
 		D2B669E41E7FC63400C61ADB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2B669E21E7FC63400C61ADB /* LoginViewController.xib */; };
 		D2B669F11E7FC69000C61ADB /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B669EF1E7FC69000C61ADB /* RegistrationViewController.swift */; };
 		D2B669F21E7FC69000C61ADB /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2B669F01E7FC69000C61ADB /* RegistrationViewController.xib */; };
+		D2CE979B1EB7C600001F8A89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2CE979A1EB7C600001F8A89 /* Assets.xcassets */; };
 		F1EB89016D592A945B7F653C /* Pods_ConferenceAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373291A751E829204141C4C4 /* Pods_ConferenceAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -130,7 +130,6 @@
 		D27815D31EB6BDAB00F0BFBC /* RegistrationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationService.swift; sourceTree = "<group>"; };
 		D2B669AE1E7FBF3200C61ADB /* ConferenceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConferenceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B669B11E7FBF3200C61ADB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D2B669B81E7FBF3200C61ADB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2B669BB1E7FBF3200C61ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2B669BD1E7FBF3200C61ADB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2B669C21E7FBF3300C61ADB /* ConferenceAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConferenceAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +142,7 @@
 		D2B669E21E7FC63400C61ADB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		D2B669EF1E7FC69000C61ADB /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		D2B669F01E7FC69000C61ADB /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
+		D2CE979A1EB7C600001F8A89 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4A36F0F63BE34DEAE8DD1EF /* Pods_ConferenceAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConferenceAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEDFE8BE71713B07DB0626B2 /* Pods-ConferenceAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConferenceAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConferenceAppUITests/Pods-ConferenceAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -333,6 +333,7 @@
 		D2B669B01E7FBF3200C61ADB /* ConferenceApp */ = {
 			isa = PBXGroup;
 			children = (
+				D2CE979A1EB7C600001F8A89 /* Assets.xcassets */,
 				D21542841EA9C04B00997478 /* Utils */,
 				A16B22AA1E8431220074F1BB /* DataModel */,
 				A16B22A31E8430790074F1BB /* schedule.json */,
@@ -340,7 +341,6 @@
 				D215426D1E80153200997478 /* Services */,
 				D2B669E51E7FC63B00C61ADB /* UserInterface */,
 				D2B669B11E7FBF3200C61ADB /* AppDelegate.swift */,
-				D2B669B81E7FBF3200C61ADB /* Assets.xcassets */,
 				D2B669BA1E7FBF3200C61ADB /* LaunchScreen.storyboard */,
 				D2B669BD1E7FBF3200C61ADB /* Info.plist */,
 			);
@@ -528,8 +528,8 @@
 				A16B22A81E8430790074F1BB /* LectureDetailViewController.xib in Resources */,
 				A16B22A61E8430790074F1BB /* schedule.json in Resources */,
 				A1A7B06B1E9EDFEE00E122D7 /* event.json in Resources */,
+				D2CE979B1EB7C600001F8A89 /* Assets.xcassets in Resources */,
 				D2B669F21E7FC69000C61ADB /* RegistrationViewController.xib in Resources */,
-				D2B669B91E7FBF3200C61ADB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

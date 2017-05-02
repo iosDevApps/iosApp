@@ -28,6 +28,9 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var gendreChooser: UISegmentedControl!
     @IBOutlet weak var registerBtn: UIButton!
     
+    var loginService: LoginService!
+    var persistService: PersistService!
+    
     var viewModel : RegistrationViewModel!
     private let disposeBag = DisposeBag()
     
@@ -36,10 +39,16 @@ class RegistrationViewController: UIViewController {
         ageValueLabel.text =  Int(ageSlider.value).description
     }
     
+    convenience init(loginService: LoginService, persistService: PersistService){
+        self.init()
+        self.loginService = loginService
+        self.persistService = persistService
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel = RegistrationViewModel(registerService: RegistrationService(), persistService: PersistService())
+        viewModel = RegistrationViewModel(registerService: RegistrationService(), persistService: persistService)
        
         
         bindInputs();
@@ -89,7 +98,7 @@ class RegistrationViewController: UIViewController {
     
     
     func openHomeViewController(){
-        let vc = HomeViewController();
+        let vc = HomeViewController(loginService: loginService, persistService:persistService);
         navigationController?.pushViewController(vc, animated: true)
     }
 

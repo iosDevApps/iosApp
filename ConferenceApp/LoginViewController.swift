@@ -20,17 +20,28 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var errorLabel: UILabel!
     
+    var loginService: LoginService!
+    var persistService: PersistService!
+    
     var viewModel : LoginViewModel!
     private let disposeBag = DisposeBag()
+    
+    convenience init(loginService: LoginService, persistService: PersistService){
+        self.init()
+        self.loginService = loginService
+        self.persistService = persistService
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ViewUtils.setBackground(view : self.view,image: AssetImage.city)
         
-        viewModel = LoginViewModel(loginService: LoginService(), persistService: PersistService())
+        viewModel = LoginViewModel(loginService: loginService, persistService: persistService)
         
         activityIndicatorView.startAnimating()
+        
+        
 
         bindInputs()
         bindOutputs()
@@ -121,7 +132,7 @@ class LoginViewController: UIViewController {
     }
     
     func openHomeViewController(){
-        let vc = HomeViewController();
+        let vc = HomeViewController(loginService: loginService, persistService:persistService);
         navigationController?.pushViewController(vc, animated: true)
     }
     
