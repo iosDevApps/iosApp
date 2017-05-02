@@ -21,16 +21,12 @@ class HomeViewController: UITabBarController, UITabBarControllerDelegate {
     }
     
     override func viewDidLoad() {
-
         super.viewDidLoad()
 //        self.automaticallyAdjustsScrollViewInsets = false
         
         let logoutButton = UIBarButtonItem(title: "logout", style: UIBarButtonItemStyle.plain, target: self, action: #selector(HomeViewController.onLogoutClicked))
 
-        
         self.navigationItem.rightBarButtonItem = logoutButton
-        
-
         self.delegate = self
     }
     

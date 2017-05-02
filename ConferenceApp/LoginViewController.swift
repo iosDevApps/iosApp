@@ -13,7 +13,6 @@ import RxCocoa
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var registerBtn: UIButton!
@@ -36,13 +35,11 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         ViewUtils.setBackground(view : self.view,image: AssetImage.city)
-        
+    
         viewModel = LoginViewModel(loginService: loginService, persistService: persistService)
         
         activityIndicatorView.startAnimating()
         
-        
-
         bindInputs()
         bindOutputs()
         
@@ -88,7 +85,8 @@ class LoginViewController: UIViewController {
     
     func bindOutputs(){
         viewModel.isLoginButtonEnabled
-            .drive(loginBtn.rx.isEnabled)
+            .map{!$0}
+            .drive(loginBtn.rx.isHidden)
             .addDisposableTo(disposeBag)
         
         

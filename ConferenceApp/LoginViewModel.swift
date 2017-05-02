@@ -53,8 +53,6 @@ class LoginViewModel {
             password.value = savedPassword
         }
         
-    
-      
         
         let loginResult = loginTap
             .flatMapLatest { () -> Observable<LoginResult> in
