@@ -67,6 +67,29 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         super.viewWillAppear(animated)
+        
+        
+        self.emailTextField.transform = CGAffineTransform.identity.translatedBy(x: view.frame.width, y: 0)
+        self.passwordTextField.transform = CGAffineTransform.identity.translatedBy(x: view.frame.width, y: 0)
+        self.registerBtn.alpha = 0
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 0.8, delay: 0.2, options: UIViewAnimationOptions.curveEaseOut, animations: {
+            self.emailTextField.transform = CGAffineTransform.identity
+            self.passwordTextField.transform = CGAffineTransform.identity
+           
+            
+            self.emailTextField.alpha = 1
+            self.passwordTextField.alpha = 1
+            
+            
+            self.view.layoutIfNeeded()
+        }, completion: {finished in
+            self.registerBtn.alpha=1
+        }
+        )
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -135,7 +158,7 @@ class LoginViewController: UIViewController {
     }
     
     func openRegistrationViewController(){
-        let vc = RegistrationViewController();
+        let vc = RegistrationViewController(loginService: loginService, persistService: persistService);
         navigationController?.pushViewController(vc, animated: true)
         
     }
