@@ -31,14 +31,4 @@ class PersistService {
             userDefaults.set(newValue, forKey: "password")
         }
     }
-    
-    var image: String? {
-        get {
-            return userDefaults.string(forKey: "image")
-        }
-        
-        set {
-            userDefaults.set(newValue, forKey: "image")
-        }
-    }
 }
