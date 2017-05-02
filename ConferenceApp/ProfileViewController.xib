@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="ConferenceApp" customModuleProvider="target">
             <connections>
+                <outlet property="addImage" destination="lI5-8D-aWF" id="fYs-Rv-Y8A"/>
+                <outlet property="imageURL" destination="XuA-NQ-eHA" id="t0O-88-fIR"/>
                 <outlet property="userAge" destination="1AV-2H-bMX" id="fLq-IL-fij"/>
                 <outlet property="userGender" destination="aUQ-LZ-9FB" id="UUK-2f-AMH"/>
                 <outlet property="userImage" destination="7tt-n2-xAZ" id="gdx-Ex-Uwf"/>
@@ -74,6 +76,21 @@
                         <constraint firstAttribute="height" constant="230" id="6hd-JM-SV0"/>
                     </constraints>
                 </imageView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lI5-8D-aWF">
+                    <rect key="frame" x="145" y="152" width="85" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Add image"/>
+                    <connections>
+                        <action selector="addImageTap:" destination="-1" eventType="touchUpInside" id="HKf-cm-3y6"/>
+                    </connections>
+                </button>
+                <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XuA-NQ-eHA" userLabel="Image URL">
+                    <rect key="frame" x="49" y="120" width="277" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>

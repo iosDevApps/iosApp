@@ -15,6 +15,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var userGender: UILabel!
     @IBOutlet weak var userAge: UILabel!
     @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var imageURL: UITextField!
+    @IBOutlet weak var addImage: UIButton!
     
     convenience init(profileService: ProfileService?) {
         self.init()
@@ -25,21 +27,53 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        imageURL.isHidden = true
+        addImage.isHidden = true
+        
         loadUser()
     }
     
     func loadUser() {
         if let user = ProfileService.getUser() {
             DispatchQueue.main.async {
-                print(user.firstName)
-                print(user.lastName)
-                print(user.gender)
-                print(user.age)
                 self.userName.text = user.firstName + " " + user.lastName
                 self.userGender.text = user.gender == "M" ? "Male" : "Female"
                 self.userAge.text = String(user.age)
-                //userImage.image = user.image
+                let persistService = PersistService()
+                guard let image = persistService.image else {
+                    self.setImage(imageURLString: "")
+                    return
+                }
+                self.setImage(imageURLString: image)
             }
         }
+    }
+    
+    @IBAction func addImageTap(_ sender: UIButton) {
+        guard let imageURLString = self.imageURL.text else {
+            print("Please set the image URL before adding")
+            return
+        }
+        
+        setImage(imageURLString: imageURLString)
+    }
+    
+    private func setImage(imageURLString: String) {
+        
+        
+        guard let imageURL = URL(string: imageURLString),
+            let data = try? Data(contentsOf: imageURL),
+            let image = UIImage(data: data)
+        else {
+            self.imageURL.isHidden = false
+            self.addImage.isHidden = false
+            self.userImage.isHidden = true
+            return
+        }
+        
+        self.userImage.isHidden = false
+        self.imageURL.isHidden = true
+        self.addImage.isHidden = true
+        self.userImage.image = image
     }
 }

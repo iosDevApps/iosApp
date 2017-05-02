@@ -28,4 +28,8 @@ class ProfileService: BaseService {
         
         return nil
     }
+    
+    public func setImage(image: String) {
+        //TODO: set image in server database 
+    }
 }

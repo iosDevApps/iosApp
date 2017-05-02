@@ -13,7 +13,7 @@ class UserJson {
     let lastName: String
     let gender: String
     let age: Int
-    //let image: UIImage
+    let image: String
     
     init?(json: [String: Any]) {
         print(json)
@@ -29,15 +29,6 @@ class UserJson {
         self.lastName = lastName
         self.gender = gender
         self.age = age
-        
-        /*guard let imageURLString = json["profile_image"] as! String?,
-            let imageURL = URL(string: imageURLString),
-            let data = try? Data(contentsOf: imageURL),
-            let image = UIImage(data: data)
-            else {
-                return nil
-        }
-        
-        self.image = image*/
+        self.image = ""
     }
 }
