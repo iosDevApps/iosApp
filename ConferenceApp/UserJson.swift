@@ -13,7 +13,7 @@ class UserJson {
     let lastName: String
     let gender: String
     let age: Int
-    let image: String?
+    let image: String
     
     init?(json: [String: Any]) {
         print(json)
@@ -21,7 +21,7 @@ class UserJson {
             let lastName = json["last_name"] as! String?,
             let gender = json["gender"] as! String?,
             let age = json["age"] as! Int?,
-            let image = json["profile_image"] as? String?
+            let image = json["profile_image"] as! String?
             else {
                 return nil
         }

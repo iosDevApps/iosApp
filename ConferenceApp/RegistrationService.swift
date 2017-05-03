@@ -31,7 +31,8 @@ class RegistrationService : BaseService{
                                   "first_name": firstName as String,
                                   "last_name": lastName as String,
                                   "age" : age as Int,
-                                  "gender" : gendre as String] as Dictionary<String, AnyObject>
+                                  "gender" : gendre as String,
+                                  "profile_image": ""] as Dictionary<String, Any>
                 
                 do {
                     request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
@@ -49,8 +50,12 @@ class RegistrationService : BaseService{
                     do {
                         let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String:Any]
                         
-                        let user = UserJson(json: json)
-                        print("user ", user ?? "")
+                        let userA = UserJson(json: json)
+                        guard let user = userA else {
+                            return
+                        }
+                        ProfileService.setUser(user: user)
+                        print("user ", user )
                         
                         observer.onNext(true)
                         observer.onCompleted()
