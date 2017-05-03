@@ -39,11 +39,13 @@ class ProfileViewController: UIViewController {
                 self.userName.text = user.firstName + " " + user.lastName
                 self.userGender.text = user.gender == "M" ? "Male" : "Female"
                 self.userAge.text = String(user.age)
-                self.setImage(imageURLString: user.image)
+                if((user.image) != nil){
+                    self.setImage(imageURLString: user.image!)
+                }
             }
         }
     }
-    
+
     @IBAction func addImageTap(_ sender: UIButton) {
         guard let imageURLString = self.imageURL.text else {
             print("Please set the image URL before adding")

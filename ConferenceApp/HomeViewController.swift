@@ -24,6 +24,8 @@ class HomeViewController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
 //        self.automaticallyAdjustsScrollViewInsets = false
         
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        
         let logoutButton = UIBarButtonItem(title: "logout", style: UIBarButtonItemStyle.plain, target: self, action: #selector(HomeViewController.onLogoutClicked))
 
         self.navigationItem.rightBarButtonItem = logoutButton

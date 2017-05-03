@@ -85,8 +85,8 @@ class RegistrationViewModel{
             
             return $0.characters.count > LoginService.EMAIL_LENGTH &&
                 $1.characters.count > LoginService.PASSWORD_LENGTH &&
-                $2.characters.count > 4 &&
-                $3.characters.count > 4 &&
+                $2.characters.count > 0 &&
+                $3.characters.count > 0 &&
                 $4 != RegistrationResult.registrationInProgress
                 
             }.asDriver(onErrorJustReturn: false)

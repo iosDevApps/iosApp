@@ -12,8 +12,8 @@ import UIKit
 
 class LoginService: BaseService {
 
-    public static let EMAIL_LENGTH = 4;
-    public static let PASSWORD_LENGTH = 4;
+    public static let EMAIL_LENGTH = 3;
+    public static let PASSWORD_LENGTH = 3;
     
     func login(email: String, password: String) -> Observable<Bool> {
         print("Login service")
