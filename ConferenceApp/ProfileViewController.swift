@@ -39,9 +39,11 @@ class ProfileViewController: UIViewController {
                 self.userName.text = user.firstName + " " + user.lastName
                 self.userGender.text = user.gender == "M" ? "Male" : "Female"
                 self.userAge.text = String(user.age)
-                if((user.image) != nil){
-                    self.setImage(imageURLString: user.image!)
+                guard let image = user.image else {
+                    self.setImage(imageURLString: "")
+                    return
                 }
+                self.setImage(imageURLString: image)
             }
         }
     }
