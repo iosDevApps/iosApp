@@ -11,13 +11,19 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegistrationViewController" customModule="ConferenceApp" customModuleProvider="target">
             <connections>
+                <outlet property="ageLabel" destination="Ag4-81-Ydi" id="tkF-iY-178"/>
                 <outlet property="ageSlider" destination="3Kc-jr-KRr" id="iQw-Lv-ysh"/>
                 <outlet property="ageValueLabel" destination="j0z-PZ-B8l" id="I9D-Wq-QHV"/>
+                <outlet property="firstNameLabel" destination="atE-HB-fC5" id="eRY-wc-WeE"/>
                 <outlet property="firstNameValue" destination="PvD-z3-o8D" id="iVR-NE-EEF"/>
+                <outlet property="genderLabel" destination="WRK-5L-WiA" id="tZC-j0-M48"/>
                 <outlet property="gendreChooser" destination="ZSC-Yq-DGt" id="SYz-e6-zLX"/>
+                <outlet property="lastNameLabel" destination="wNR-I3-XSE" id="q5y-O5-dE2"/>
                 <outlet property="lastNameValue" destination="OYY-xn-xe7" id="LmW-Bu-mgb"/>
+                <outlet property="passwordLabel" destination="a3X-nw-i8M" id="NKd-zB-6gX"/>
                 <outlet property="passwordValue" destination="twy-WY-Pan" id="BKW-Fe-emc"/>
                 <outlet property="registerBtn" destination="e8E-XN-Ng8" id="8yl-rq-hhT"/>
+                <outlet property="usernameLabel" destination="Dgo-bQ-YGf" id="cvJ-fY-o9Z"/>
                 <outlet property="usernameValue" destination="VFU-MX-Kpk" id="Qzw-zo-N9o"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
