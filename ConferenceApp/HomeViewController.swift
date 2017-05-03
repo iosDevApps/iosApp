@@ -64,11 +64,11 @@ class HomeViewController: UITabBarController, UITabBarControllerDelegate {
         favoriteEventsViewController.title = "Favorites"
         
         let eventsViewController = EventsViewController(eventService: eventService, scheduleService: scheduleService)
-        eventsViewController.tabBarItem = UITabBarItem(title: "Events", image: nil, tag: 2)
+        eventsViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .topRated, tag: 2)
         eventsViewController.title = "Upcoming Events"
         
         let profileViewController = ProfileViewController(profileService: profileService)
-        profileViewController.tabBarItem = UITabBarItem(title: "Profile", image: nil, tag: 3)
+        profileViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 3)
         profileViewController.title = "Profile"
         
         let viewControllers = [favoriteEventsViewController, eventsViewController, profileViewController]
