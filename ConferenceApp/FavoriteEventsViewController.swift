@@ -12,7 +12,7 @@ import PureLayout
 
 class FavoriteEventsViewController: UIViewController {
     
-    fileprivate var persistanceService: PersistanceService? = nil
+    fileprivate var persistanceService: PersistanceService?
     fileprivate var dataSource: TableViewDataSource<FavoriteEventsViewController>?
     fileprivate var event: EventJson?
 

@@ -14,9 +14,11 @@ fileprivate let reusableIdentifier = String(describing: EventTableViewCell.self)
 class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let tableView = UITableView()
-
+    
     private var events = [EventJson]()
     private var eventService: EventService?
+    private var schedule: ScheduleJson?
+    private var scheduleService: ScheduleService?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,91 +31,34 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.events = events
             self.tableView.reloadData()
         }
-
+        
     }
     
-    convenience init(eventService: EventService) {
+    func loadSchedule(schedule: ScheduleJson) {
+        DispatchQueue.main.async {
+            self.schedule = schedule
+        }
+    }
+    
+    convenience init(eventService: EventService, scheduleService: ScheduleService) {
         self.init()
         self.eventService = eventService
-//        self.automaticallyAdjustsScrollViewInsets = false
-
+        self.scheduleService = scheduleService
     }
-    
-//    init() {
-//        
-//        self.events = EventsViewController.createEventsFromJson()
-//        super.init(nibName: nil, bundle: nil)
-//        
-//    }
-    
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
     
     
     private func setUpTable() {
         
-
         tableView.register(EventTableViewCell.self, forCellReuseIdentifier: reusableIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView()
-
+        
         self.view.addSubview(tableView)
         tableView.autoPinEdgesToSuperviewEdges()
-
-    }
-    
-    static private func createEventsFromJson() -> [EventJson] {
         
-        let jsonFileName = "event"
-        if let path = Bundle.main.path(forResource: jsonFileName, ofType: "json") {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
-                do {
-                    
-                    let parsedData = try JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
-                    let events = parsedData.flatMap(EventJson.init)
-                    return events
-                    
-                } catch let error {
-                    print(error.localizedDescription)
-                }
-            } catch let error {
-                print(error.localizedDescription)
-            }
-        } else {
-            print("Invalid filename/path.")
-        }
-        
-        return []
-    }
-    private func createScheduleFromJson() -> ScheduleJson? {
-        
-        let jsonFileName = "schedule"
-        
-        if let path = Bundle.main.path(forResource: jsonFileName, ofType: "json") {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
-                do {
-                    
-                    let parsedData = try JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
-                    let schedule = ScheduleJson(scheduleInfo: parsedData)
-                    return schedule
-                    
-                } catch let error {
-                    print(error.localizedDescription)
-                }
-            } catch let error {
-                print(error.localizedDescription)
-            }
-        } else {
-            print("Invalid filename/path.")
-        }
-        
-        return nil
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -126,18 +71,17 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return events.count
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let event = events[indexPath.row]
+        let scheduleService = ScheduleService()
         let persistanceService = PersistanceService()
-        let schedule = createScheduleFromJson()!
         let scheduleViewController = ScheduleViewController(persistanceService: persistanceService,
-                                                            event: events[indexPath.row],
-                                                            schedule: schedule)
-        navigationController?.pushViewController(scheduleViewController, animated: true)
+                                                            event: event,
+                                                            scheduleService: scheduleService)
+        
+        self.navigationController?.pushViewController(scheduleViewController, animated: true)
+        
     }
     
-    @IBAction func profileTap(_ sender: UIButton) {
-        let profileService = ProfileService()
-        let profileViewController = ProfileViewController(profileService: profileService)
-        navigationController?.pushViewController(profileViewController, animated: true)
-    }
 }

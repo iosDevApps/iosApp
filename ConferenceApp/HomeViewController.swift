@@ -57,12 +57,13 @@ class HomeViewController: UITabBarController, UITabBarControllerDelegate {
         let profileService = ProfileService()
         let persistanceService = PersistanceService()
         let eventService = EventService()
+        let scheduleService = ScheduleService()
         
         let favoriteEventsViewController = FavoriteEventsViewController(persistanceService: persistanceService)
         favoriteEventsViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         favoriteEventsViewController.title = "Favorites"
         
-        let eventsViewController = EventsViewController(eventService: eventService)
+        let eventsViewController = EventsViewController(eventService: eventService, scheduleService: scheduleService)
         eventsViewController.tabBarItem = UITabBarItem(title: "Events", image: nil, tag: 2)
         eventsViewController.title = "Upcoming Events"
         
@@ -82,32 +83,3 @@ class HomeViewController: UITabBarController, UITabBarControllerDelegate {
 }
 
 
-//class HomeViewController: UIViewController {
-//
-//    override func viewDidLoad() {
-//
-//        let profileService = ProfileService()
-//        let persistanceService = PersistanceService()
-//        let tabBarViewController = UITabBarController()
-//        let favoriteEventsViewController = FavoriteEventsViewController(persistanceService: persistanceService)
-//        let eventsViewController = EventsViewController()
-//        let profileViewController = ProfileViewController(profileService: profileService)
-//        let viewControllers = [favoriteEventsViewController, eventsViewController, profileViewController]
-//
-//        tabBarViewController.viewControllers = viewControllers
-//
-//
-//        super.viewDidLoad()
-////        setUpTable()
-//    }
-//
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//    }
-//
-//    @IBAction func profileTap(_ sender: UIButton) {
-//        let profileService = ProfileService()
-//        let profileViewController = ProfileViewController(profileService: profileService)
-//        navigationController?.pushViewController(profileViewController, animated: true)
-//    }
-//}

@@ -55,4 +55,9 @@ extension Event: Managed{
     static var defaultSortDescriptors: [NSSortDescriptor] {
         return [NSSortDescriptor(key: #keyPath(id), ascending: false)]
     }
+    
+    static var entityName: String {
+        return "Event"
+    }
+
 }

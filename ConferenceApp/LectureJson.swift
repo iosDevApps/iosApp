@@ -22,7 +22,7 @@ class LectureJson {
             let lectureTitle = lecturesInfo["title"] as? String,
             let lecturerInfo = lecturesInfo["lecturer"] as? [String: String],
             let lectureLocation = lecturesInfo["location"] as? String,
-            let lectureShortDescription = lecturesInfo["short_descripton"] as? String
+            let lectureShortDescription = lecturesInfo["short_description"] as? String
             
             else {
                 return nil
