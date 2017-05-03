@@ -20,7 +20,8 @@ class UserJson {
         guard let firstName = json["first_name"] as! String?,
             let lastName = json["last_name"] as! String?,
             let gender = json["gender"] as! String?,
-            let age = json["age"] as! Int?
+            let age = json["age"] as! Int?,
+            let image = json["profile_image"] as! String?
             else {
                 return nil
         }
@@ -29,6 +30,6 @@ class UserJson {
         self.lastName = lastName
         self.gender = gender
         self.age = age
-        self.image = ""
+        self.image = image
     }
 }

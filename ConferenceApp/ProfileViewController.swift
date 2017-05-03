@@ -39,12 +39,7 @@ class ProfileViewController: UIViewController {
                 self.userName.text = user.firstName + " " + user.lastName
                 self.userGender.text = user.gender == "M" ? "Male" : "Female"
                 self.userAge.text = String(user.age)
-                let persistService = PersistService()
-                guard let image = persistService.image else {
-                    self.setImage(imageURLString: "")
-                    return
-                }
-                self.setImage(imageURLString: image)
+                self.setImage(imageURLString: user.image)
             }
         }
     }
@@ -70,6 +65,17 @@ class ProfileViewController: UIViewController {
             self.userImage.isHidden = true
             return
         }
+        
+        guard let user = ProfileService.getUser() else{
+            return
+        }
+        
+        if user.image == "" {
+            let service = ProfileService()
+            service.setImage(image: imageURLString)
+        }
+            
+        
         
         self.userImage.isHidden = false
         self.imageURL.isHidden = true
