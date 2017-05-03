@@ -74,6 +74,9 @@ extension FavoriteEventsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         let object = dataSource?.objectAtIndexPath(indexPath)
-        persistanceService!.delete(event: object!)
+//        persistanceService!.delete(event: object!)
+        let scheduleViewController = ScheduleViewController(persistanceService: persistanceService, event: object!)
+        
+        self.navigationController?.pushViewController(scheduleViewController, animated: true)
     }
 }

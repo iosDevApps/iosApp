@@ -39,5 +39,13 @@ class LectureJson {
         self.scheduledTime = lectureScheduledTime
         
     }
+    
+    init?(lecture: Lecture, lecturer: Lecturer) {
+        self.title = lecture.title
+        self.location = lecture.location
+        self.scheduledTime = lecture.scheduledTime
+        self.shortDescription = lecture.shortDesc
+        self.lecturer = LecturerJson(lecturer: lecturer)!
+    }
         
 }

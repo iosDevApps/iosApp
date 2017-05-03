@@ -10,11 +10,12 @@ import Foundation
 
 class EventJson {
     
-    let id: String
-    let name: String
-    let duration: Int
+    var id: String = ""
+    var name: String = ""
+    var duration: Int = 0
     
-    init?(json: [String: Any]) {
+    convenience init?(json: [String: Any]) {
+        self.init()
         guard
             let eventDuration = json["days"] as? Int,
             let eventId = json["id"] as? String,
@@ -26,5 +27,12 @@ class EventJson {
         self.duration = eventDuration
         self.id = eventId
         self.name = eventName
+    }
+    
+    convenience init(event: Event) {
+        self.init()
+        self.duration = Int(event.duration)
+        self.id = event.id
+        self.name = event.name
     }
 }

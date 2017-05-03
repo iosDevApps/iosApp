@@ -16,12 +16,15 @@ class ScheduleJson {
         lecturesInizialization(schedule: scheduleInfo)
     }
     
+    init?(for event: Event) {
+        self.lecturesSchedule = createScheduleJsonFor(event: event)
+    }
+    
     func getDates() -> [String] {
         return Array(lecturesSchedule.keys).sorted(by: <)
     }
     
 
-    
     func lecturesInizialization(schedule: [[String: Any]]) {
         var lectures = [LectureJson]()
         for dailySchedule in schedule {
@@ -37,4 +40,19 @@ class ScheduleJson {
         }
     }
     
+    func createScheduleJsonFor(event: Event) -> [String: [LectureJson]] {
+        var schedule = [String: [LectureJson]]()
+        let days = event.days
+        for day in days {
+            let dateString = day.createStringFrom(date: day.date)
+            var lectures = [LectureJson]()
+            for lecture in day.lectures {
+                print(lecture.lecturer.name)
+                let lectureJson = LectureJson(lecture: lecture, lecturer: lecture.lecturer)
+                lectures.append(lectureJson!)
+            }
+            schedule[dateString] = lectures
+        }
+        return schedule
+    }
 }

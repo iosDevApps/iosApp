@@ -6,20 +6,13 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
     private var schedule: ScheduleJson?
     private var persistanceService: PersistanceService?
     private var scheduleService: ScheduleService?
+    private var eventObject: Event? = nil
     private var dateKeys: [String] = []
-    private var proba: Bool?
-    
-    //    convenience init(persistanceService: PersistanceService?, event: EventJson, schedule: ScheduleJson) {
-    //        self.init()
-    //        self.event = event
-    //        self.persistanceService = persistanceService
-    //        self.schedule = schedule
-    //        self.dateKeys = createDateArray()
-    //
-    //    }
+    private var coreData: Bool = false
     
     convenience init(persistanceService: PersistanceService?, event: EventJson, scheduleService: ScheduleService) {
         self.init()
+        self.coreData = false
         self.event = event
         self.persistanceService = persistanceService
         self.scheduleService = scheduleService
@@ -28,14 +21,16 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
         
     }
     
-    //    convenience init(persistanceService: PersistanceService?, event: Event) {
-    //        self.init()
-    //        self.event = event
-    //        self.persistanceService = persistanceService
-    //        self.schedule = schedule
-    //        self.dateKeys = createDateArray()
-    //
-    //    }
+        convenience init(persistanceService: PersistanceService?, event: Event) {
+            self.init()
+            self.coreData = true
+            self.eventObject = event
+            self.event = EventJson(event: event)
+            self.persistanceService = persistanceService
+            self.schedule = ScheduleJson(for: event)
+            self.dateKeys = createDateArray()
+    
+        }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +41,12 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
         self.delegate = self
         self.dataSource = self
         
-        scheduleService?.getSchedule(for: event!.id, handler: loadSchedule)
+        if coreData {
+            pageViewControllerSetUp()
+
+        } else {
+            scheduleService?.getSchedule(for: event!.id, handler: loadSchedule)
+        }
     }
     
     private func createDailySchedule(lectures: [LectureJson], date: String) -> DailyScheduleViewController {
@@ -75,12 +75,17 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
         self.navigationController!.navigationBar.isTranslucent = false
         self.navigationController!.navigationBar.backgroundColor = UIColor.white
         self.navigationItem.title = "Schedule"
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(saveEvent))
-        self.navigationItem.rightBarButtonItem = addButton
-        
+        if coreData {
+            let removeButton = UIBarButtonItem(barButtonSystemItem: .trash,
+                                               target: self, 
+                                               action: #selector(deleteEvent))
+            self.navigationItem.rightBarButtonItem = removeButton
+        } else {
+            let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(saveEvent))
+            self.navigationItem.rightBarButtonItem = addButton
+        }
         
     }
-    
     
     
     @objc private func saveEvent() {
@@ -93,6 +98,13 @@ class ScheduleViewController: UIPageViewController, UIPageViewControllerDelegate
             { event in
                 print("event ID:", event.id)
             }
+        }
+        
+    }
+    @objc public func deleteEvent() {
+        if let persistanceService = self.persistanceService {
+//            persistanceService.delete(event: event)
+            self.navigationController?.popViewController(animated: true)
         }
         
     }

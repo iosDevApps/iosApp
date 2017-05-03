@@ -23,4 +23,8 @@ class LecturerJson {
         self.name = lecturerName
         self.shortBio = lecturerShortBio
     }
+    init?(lecturer: Lecturer) {
+        self.name = lecturer.name
+        self.shortBio = lecturer.biography
+    }
 }

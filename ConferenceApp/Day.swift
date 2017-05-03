@@ -30,9 +30,17 @@ public final class Day: ManagedObject {
     }
     static private func createDateFromString(dateString: String) -> Date {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.mm.yyyy" //Your date format
+        dateFormatter.dateFormat = "dd.mm.yyyy"
         let date = dateFormatter.date(from: dateString)!
         return date
+    }
+    
+    func createStringFrom(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.mm.yyyy" 
+        let dateString = dateFormatter.string(from: date)
+        return dateString
+
     }
 
     static func findOrCreateDay(for lecturesDateString: String, lecturesJson: [LectureJson], into context: NSManagedObjectContext) -> Day {
